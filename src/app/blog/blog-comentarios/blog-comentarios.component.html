@@ -1,0 +1,16 @@
+<div id="collapseComentarios" [ngbCollapse]="isCollapsed"> 
+  <table class="table  table-striped">
+
+	<tbody>
+		<tr *ngFor="let i of comentario.comentarios">
+			<td style="cursor: pointer;">
+				<dd>{{i.texto}}</dd>
+
+			</td>
+			<td>
+				<dd>{{i.calificacion}}</dd>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>

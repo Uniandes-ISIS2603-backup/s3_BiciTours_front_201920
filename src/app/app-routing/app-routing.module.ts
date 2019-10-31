@@ -6,6 +6,9 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
+import { BlogListComponent } from '../blog/blog-list/blog-list.component';
+import { BlogDetailComponent } from '../blog/blog-detail/blog-detail.component';
+
 const routes: Routes = [
 
      {
