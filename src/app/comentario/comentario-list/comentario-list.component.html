@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Comentario Grade</th>    
+                    <th>Comentario Text</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let c of comentarios">
+                    <td>{{c.calificacion}}</td>
+                    <td>{{c.texto}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
