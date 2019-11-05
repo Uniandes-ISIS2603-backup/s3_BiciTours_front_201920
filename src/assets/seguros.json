@@ -1,0 +1,14 @@
+[{
+    "tipo": "seguro de vida",
+    "caracteristicas": "no te  mueras compa",
+    "condiciones": "estar  muerto"
+  }, {
+    "tipo": "seguro de accidentes",
+    "caracteristicas": "no te  accidentes compa",
+    "condiciones": "estar  accidentado"
+  },
+  {
+    "tipo": "seguro robo",
+    "caracteristicas": "no te  dejes robar compa",
+    "condiciones": "estar  muerto"
+  }]

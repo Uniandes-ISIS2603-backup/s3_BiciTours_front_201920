@@ -1,54 +1,35 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ToastrModule} from 'ngx-toastr';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
-import {NgxPermissionsModule} from 'ngx-permissions';
-import { ModalDialogModule } from 'ngx-modal-dialog';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing/app-routing.module';
-import {AuthModule} from './auth/auth.module';
-import { BlogModule } from './Blog/blog.module';
-
-
-
-
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SegurosModule} from './seguros/seguros.module';
+import {HttpClientModule} from '@angular/common/http';
+import { LayoutComponent } from './layout/layout.component';
+import {ShareModule} from './share/share.module';
+import {HomeModule} from './home/home.module';
+import {ContactModule } from './contacto/contact.module';
+import {AdminModule} from './admin/admin.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        ModalDialogModule.forRoot(),
-        AuthModule,
-        FormsModule,
-        ToastrModule.forRoot({
-            timeOut: 10000,
-            positionClass: 'toast-bottom-right',
-            preventDuplicates: true,
-        }),
-        NgxPaginationModule,
-        NgxPermissionsModule.forRoot(),
-        NgbModule,
-        BlogModule
-    ],
-    bootstrap: [AppComponent],
-    providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: HttpErrorInterceptor,
-            multi: true
-        }
-    ]
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    PageNotFoundComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SegurosModule,
+    HttpClientModule,
+    ShareModule,
+    HomeModule,
+    ContactModule,
+    AdminModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
