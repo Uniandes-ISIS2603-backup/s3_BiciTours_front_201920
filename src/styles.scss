@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+$baseColor:#011627;
+$secondBaseColor:#C72C41;
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+
+
+.bodyColor{
+   // background: linear-gradient($baseColor,$secondBaseColor) !important; 
+    background: $baseColor !important; 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

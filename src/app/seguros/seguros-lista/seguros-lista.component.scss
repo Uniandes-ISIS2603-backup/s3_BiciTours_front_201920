@@ -1,0 +1,31 @@
+$baseColor:#FF6F5E;
+$secondBaseColor:rgb(156, 71, 61);
+$colorFont:white;
+
+
+.container {
+    margin-top:25px;
+    background: none;
+
+}
+
+.main-card {
+ margin-bottom:15px;
+ height: 300px;
+}
+.card-modal {
+ margin-bottom:15px;
+}
+.card img {
+ height: 80%;
+ object-fit: cover;
+}
+
+.btn-dark {
+
+    background-color: #011627;
+    color: $colorFont !important;
+
+}
+
+
