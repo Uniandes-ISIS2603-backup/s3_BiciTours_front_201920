@@ -30,16 +30,20 @@ const routes: Routes = [
       {
         path: 'blogs',
         loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
+      },
+      {
+        path: 'comentarios',
+        loadChildren: () => import('./comentario/comentario.module').then(m => m.ComentarioModule)
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+      },
+      {
+        path: '**',
+        component: PageNotFoundComponent
       }
     ]
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
   }
 ];
 
