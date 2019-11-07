@@ -1,21 +1,18 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col">
-			<table class="table table-striped">>
-
-				<tbody>
-					<tr *ngFor="let i of blogs">
-						<td style="cursor: pointer;">
-						
-							<dd (click)="onSelected(i.id)" routerLinkActive="active-link">{{i.titulo}}</dd>
+<br>
+	<div class="container-fluid" style="text-align: center; background: #C72C41; width: 70%; border: 10px solid white">
+		<br>
+			<div *ngFor="let i of blogs" style="border: 2px solid black; background: white; font-size-adjust: 15px;"> 	
+				<table cellspacing="100">
+					<tr>
+						<td style="text-align: left; cursor: pointer;">
+							<dd (click)="onSelected(i.id)" class="nav-link  text-color" routerLink="/blogs/{{i.id}}" routerLinkActive=active routerLinkActive="active-link"style="vertical-align: middle;" >{{i.titulo}}</dd>
+						</td>
+						<td style="text-align: right;">
+							<img src="../../../assets/star.png" style="width:15px;height:15px; vertical-align: middle;">{{i.calificacionPromedio}}
 						</td>
 					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="col">
-			<div *ngIf="selectedBlog" class="border m-3 p-3">
-        				<app-blog-detail [blogDetail]="selectedBlog"> </app-blog-detail>
+				</table>
 			</div>
+		<br>
 	</div>
-</div>
+<br>

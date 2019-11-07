@@ -1,21 +1,23 @@
-<dl>
-	<dt>Titulo</dt>
-	<dd>{{blogDetail.titulo}}</dd>
-	<dt>Texto</dt>
-	<dd>{{blogDetail.texto}}</dd>
-	<dt>Calificacion promedio</dt>
-	<dd>{{blogDetail.calificacionPromedio}}</dd>
-	<dt>Ruta imagen</dt>
-	<dd>{{blogDetail.rutaImagen}}</dd>
-	<dt>Ruta video</dt>
-	<dd>{{blogDetail.rutaVideo}}</dd>
-</dl>
+<br>
+	<div class="container-fluid" style="text-align: center; background: #C72C41; width: 70%; border: 10px solid white">
+		<br>
+			<div style="font-size-adjust: 15px;"> 	
+				<table cellspacing="100">
+					<dl>
+						<dt>Titulo</dt>
+						<dd>{{blogDetail.titulo}}</dd>
+						<dt>Texto</dt>
+						<dd>{{blogDetail.texto}}</dd>
+						<dt>Calificacion promedio</dt>
+						<dd>{{blogDetail.calificacionPromedio}}</dd>
+						<dt>Ruta imagen</dt>
+						<dd>{{blogDetail.rutaImagen}}</dd>
+						<dt>Ruta video</dt>
+						<dd>{{blogDetail.rutaVideo}}</dd>
+					</dl>
+				</table>
+			</div>
+		<br>
+	</div>
+<br>
 
-<p>
-
-	<button type="button" class="btn" (click)="getBlogComentarios()">
-    Comentarios blog
-  </button>
-</p>
-
-<blog-comentarios [comentario]="blogDetail.Comentarios"></blog-comentarios>

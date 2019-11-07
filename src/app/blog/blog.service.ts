@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { Comentario } from './comentario';
 
 const API_URL = '../../assets/';
-const blog = 'blog.json';
 const blogs = "blogs.json";
 
 @Injectable()
@@ -27,4 +26,7 @@ export class BlogService {
     return this.http.get<Comentario>(API_URL + "comentarios-" + blogId + ".json");
   }
 
+  postBlog(blog: Blog) {
+    return  this.http.post(API_URL + blogs, blog);
+  }
 }
