@@ -16,7 +16,7 @@ export class BlogCreateComponent{
     constructor(
         private blogService: BlogService,
         private formBuilder: FormBuilder,
-//       private toastrService: ToastrService,
+       private toastrService: ToastrService,
         private router: Router
     ) {    
         this.blogForm = this.formBuilder.group({
@@ -27,18 +27,18 @@ export class BlogCreateComponent{
     });
     }
     blog:Blog;
-    /postBlog(blogN): Blog {
+    postBlog(blogN): Blog {
         this.blogService.postBlog(this.blog)
             .subscribe(blog => {
                 this.blog.id = blogN.id;
                 this.router.navigate(['/blogs/' + blogN.id]);
             }, err => {
-//                this.toastrService.error(err, 'Error');
+                this.toastrService.error(err, 'Error');
             });
         return this.blog;
     }
     cancelCreation(): void {
-    //    this.toastrService.warning('The blog wasn\'t created', 'Blog creation');
+        this.toastrService.warning('The blog wasn\'t created', 'Blog creation');
         this.router.navigate(['/blogs']);
     }
     ngOnInit() {

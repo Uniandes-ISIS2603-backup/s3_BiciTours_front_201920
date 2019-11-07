@@ -23,7 +23,7 @@ export class BlogDetailComponent implements OnInit {
   }
 
   blog_id: number;
-@ViewChild(BlogComentariosComponent) comentariosComponent: BlogComentariosComponent;
+@ViewChild(BlogComentariosComponent, {static: true}) comentariosComponent: BlogComentariosComponent;
   getBlogDetail(): void {
     this.blogService.getBlogDetail(this.blog_id)
       .subscribe(blogDetail => {
