@@ -6,14 +6,15 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogService } from './blog.service';
 import { BlogComentariosComponent } from './blog-comentarios/blog-comentarios.component';
+import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogRoutingModule } from './blog-routing.module';
 
 @NgModule({
   imports: [
     CommonModule, NgbModule, BlogRoutingModule
   ],
-  declarations: [BlogListComponent, BlogDetailComponent, BlogComentariosComponent],
-  exports: [BlogListComponent],
+  declarations: [BlogListComponent, BlogDetailComponent, BlogComentariosComponent, BlogCreateComponent], 
+  exports: [BlogListComponent, BlogCreateComponent],
   providers: [BlogService]
 })
 export class BlogModule { }
