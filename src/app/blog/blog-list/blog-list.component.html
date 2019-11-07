@@ -1,18 +1,17 @@
 <br>
 	<div class="container-fluid" style="text-align: center; background: #C72C41; width: 70%; border: 10px solid white">
 		<br>
-			<div *ngFor="let i of blogs" style="border: 2px solid black; background: white; font-size-adjust: 15px;"> 	
-				<table cellspacing="100">
-					<tr>
-						<td style="text-align: left; cursor: pointer;">
-							<dd (click)="onSelected(i.id)" class="nav-link  text-color" routerLink="/blogs/{{i.id}}" routerLinkActive=active routerLinkActive="active-link"style="vertical-align: middle;" >{{i.titulo}}</dd>
-						</td>
-						<td style="text-align: right;">
-							<img src="../../../assets/star.png" style="width:15px;height:15px; vertical-align: middle;">{{i.calificacionPromedio}}
-						</td>
-					</tr>
-				</table>
-			</div>
+			<table  *ngFor="let i of blogs" style="width: 100%; border: 2px solid white; background-color: #01203a; font-size: 25px; color: white; cursor: pointer;" (click)="onSelected(i.id)">  	
+				<th style=" width: 10%;">
+					<img src="{{i.rutaImagen}}" style="width:100px;height:100px; vertical-align: middle;" onerror="src='../../../assets/Blank_File.png'; style='width:100px;height:100px; vertical-align: middle;'">
+				</th>
+				<th style="text-align: left;">
+					<dd  class="nav-link  text-color" routerLink="/blogs/{{i.id}}" routerLinkActive=active routerLinkActive="active-link"style="vertical-align: middle;" >{{i.titulo}}</dd>
+				</th>
+				<th style=" width: 10%;">
+					<img src="../../../assets/star.png" style="width:25px;height:25px; text-align: right;">{{i.calificacionPromedio}}
+				</th>
+			</table>
 		<br>
 	</div>
 <br>

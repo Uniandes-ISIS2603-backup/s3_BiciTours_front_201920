@@ -1,22 +1,16 @@
 <br>
-	<div class="container-fluid" style="text-align: center; background: #C72C41; width: 70%; border: 10px solid white">
+	<div class="container-fluid" style=" background: #C72C41; width: 70%; border: 10px solid black; text-align: center; color: white;">
 		<br>
-			<div style="font-size-adjust: 15px;"> 	
-				<table cellspacing="100">
-					<dl>
-						<dt>Titulo</dt>
-						<dd>{{blogDetail.titulo}}</dd>
-						<dt>Texto</dt>
-						<dd>{{blogDetail.texto}}</dd>
-						<dt>Calificacion promedio</dt>
-						<dd>{{blogDetail.calificacionPromedio}}</dd>
-						<dt>Ruta imagen</dt>
-						<dd>{{blogDetail.rutaImagen}}</dd>
-						<dt>Ruta video</dt>
-						<dd>{{blogDetail.rutaVideo}}</dd>
-					</dl>
-				</table>
-			</div>
+			
+					<div style="font-size: 30px; text-align: center;">{{blogDetail.titulo}}</div>
+					<div style="text-align: right;">Calificacion Promedio: <img src="../../../assets/star.png" style="width:15px;height:15px;align-self: auto;">{{blogDetail.calificacionPromedio}}</div>
+					<br>
+					<div>
+							<img src="{{blogDetail.rutaImagen}}" style="max-height: 400px; max-width: 500px; border:2px solid black; " onerror="this.style.display='none'">
+					</div>
+					<br>
+					<div style="border:2px solid black; background: white; color: black;" >{{blogDetail.texto}}</div>						
+			
 		<br>
 	</div>
 <br>

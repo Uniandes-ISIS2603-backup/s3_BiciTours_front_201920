@@ -4,6 +4,7 @@ import { Blog } from './blog';
 import { BlogDetail } from './blog-detail';
 import { Observable } from 'rxjs';
 import { Comentario } from './comentario';
+import { map } from 'rxjs/operators';
 
 const API_URL = '../../assets/';
 const blogs = "blogs.json";
@@ -16,13 +17,12 @@ export class BlogService {
   getBlogs() : Observable<Blog[]> {
         return this.http.get<Blog[]>(API_URL + blogs);
     }
-    
-  getBlogDetail(blogId): Observable<BlogDetail> {
-    console.log(API_URL + "blog-" + blogId + ".json");
-    return this.http.get<BlogDetail>(API_URL + "blog-" + blogId + ".json");
+    todos: Blog[];
+    uno: Blog;
+    getBlogDetail(blogId): Observable<BlogDetail> {
+    return this.http.get<BlogDetail[]>(API_URL + blogs).pipe(map(todos => todos.find(uno => uno.id==blogId)));
   }    
     getBlogComentarios(blogId: number): Observable<Comentario> {
-    console.log(API_URL + "comentarios-" + blogId + ".json");
     return this.http.get<Comentario>(API_URL + "comentarios-" + blogId + ".json");
   }
 

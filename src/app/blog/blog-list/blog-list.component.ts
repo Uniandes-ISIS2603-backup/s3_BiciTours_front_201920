@@ -19,7 +19,6 @@ export class BlogListComponent implements OnInit {
     this.blog_id = blog_id;
     this.selectedBlog = new BlogDetail();
     this.blogService.getBlogDetail(blog_id).subscribe(o => this.selectedBlog = o);
-    
   }
   getBlogs(): void {
     this.blogService.getBlogs().subscribe(blogs => (this.blogs = blogs));
