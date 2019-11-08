@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Blog } from './blog';
 import { BlogDetail } from './blog-detail';
 import { Observable } from 'rxjs';
-import { Comentario } from './comentario';
-import { map } from 'rxjs/operators';
 
 const API_URL = 'http://localhost:8080/s3_bicitours-api/api';
 const blogs = "/blogs";
@@ -19,14 +17,11 @@ export class BlogService {
     }
     todos: Blog[];
     uno: Blog;
-    getBlogDetail(blogId): Observable<BlogDetail> {
-    return this.http.get<BlogDetail[]>(API_URL + blogs).pipe(map(todos => todos.find(uno => uno.id==blogId)));
+    getBlogDetail(blogId:number): Observable<BlogDetail> {
+    return this.http.get<BlogDetail>(API_URL + blogs+"/"+blogId);
   }    
-    getBlogComentarios(blogId: number): Observable<Comentario> {
-    return this.http.get<Comentario>(API_URL + blogs);
-  }
 
-  postBlog(blog: Blog) {
+  createBlog(blog: Blog) {
     return  this.http.post(API_URL + blogs, blog);
   }
 }

@@ -1,13 +1,25 @@
-<div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <br>
-                <h2 class="text-center">Add a new blog</h2>
-                <br>
-
-                <br>
-            </div>
+<form [formGroup]="blogForm" (ngSubmit)="createBlog(blogForm.value)">
+    <div>
+        <label for="titulo">Titulo</label>
+        <input novalidate id="titulo" class="form-control" formControlName="titulo" placeholder="Escriba el titulo de su blog">
+        <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('titulo').hasError('required') && blogForm.get('titulo').touched">
+        Titulo requerido
         </div>
     </div>
-    <br>
-    <br>
+    <div class="form-group">
+        <label for="texto">Texto</label>
+        <input novalidate id="texto" class="form-control" formControlName="texto" placeholder="Escriba el texto de su blog">
+        <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('texto').hasError('required') && blogForm.get('texto').touched">
+        Texto requerido
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rutaImagen">Ruta imagen en linea</label>
+        <input novalidate id="rutaImagen" class="form-control" formControlName="rutaImagen" placeholder="Escriba la ruta de la imagen de su blog">
+    </div>
+    <div class="form-group">
+        <label for="titulo">Ruta video en linea</label>
+        <input novalidate id="rutaVideo" class="form-control" formControlName="rutaVideo" placeholder="Escriba el titulo de su blog">
+    </div>
+    <button class="button" type="submit" [disabled]="blogForm.invalid">Crear blog</button>
+</form>

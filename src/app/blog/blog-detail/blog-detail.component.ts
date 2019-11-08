@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { BlogDetail } from '../blog-detail';
 import { Blog } from '../blog';
-import { BlogComentariosComponent } from '../blog-comentarios/blog-comentarios.component';
+
 
 @Component({
   selector: 'app-blog-detail',
@@ -23,15 +23,11 @@ export class BlogDetailComponent implements OnInit {
   }
 
   blog_id: number;
-@ViewChild(BlogComentariosComponent, {static: true}) comentariosComponent: BlogComentariosComponent;
   getBlogDetail(): void {
     this.blogService.getBlogDetail(this.blog_id)
       .subscribe(blogDetail => {
         this.blogDetail = blogDetail
       });
-  }
-  getBlogComentarios(): void {
-    this.comentariosComponent.getComentarios(this.blogDetail.id);
   }
   
   ngOnInit() {
