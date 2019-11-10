@@ -11,6 +11,8 @@ import {HomeModule} from './home/home.module';
 import {ContactModule } from './contacto/contact.module';
 import {AdminModule} from './admin/admin.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BlogModule} from './blog/blog.module';
+import { ComentarioModule} from './comentario/comentario.module';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ShareModule,
     HomeModule,
     ContactModule,
-    AdminModule
+    AdminModule,
+    BlogModule,
+    ComentarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
