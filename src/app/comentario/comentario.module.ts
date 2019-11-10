@@ -7,7 +7,7 @@ import { ComentarioRoutingModule } from './comentario-routing.module';
 @NgModule({
   imports: [ CommonModule, ComentarioRoutingModule],
   declarations: [ComentarioListComponent, ComentarioDetailComponent],
-  exports: [ComentarioListComponent],
+  exports: [ComentarioListComponent, ComentarioDetailComponent],
   providers: [ComentarioService]
 })
 export class ComentarioModule { }
