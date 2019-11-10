@@ -1,4 +1,5 @@
  [{
+<<<<<<< HEAD
   "id": 1,
   "calificacion": 3, 
   "texto": "meh"
@@ -10,4 +11,19 @@
   "id": 3,
   "calificacion": 5,
   "texto": "The best :o"
+=======
+    "id": 1,
+    "calificacion": 3, 
+    "texto": "meh"
+  }, 
+  {
+    "id": 2,
+    "calificacion": 4,
+    "texto": "Good"
+  }, 
+  {
+    "id": 3,
+    "calificacion": 5,
+    "texto": "The best :o"
+>>>>>>> 8b2cff7145197e4ff49845db513be674387c5ebc
   }]
