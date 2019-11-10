@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Seguro} from './../../seguros/seguro';
 import {SeguroService} from './../../core/services/seguro.service';
+import {FormGroup} from '@angular/forms'
 
 @Component({
   selector: 'app-list-insurances',
@@ -10,14 +11,19 @@ import {SeguroService} from './../../core/services/seguro.service';
 export class ListInsurancesComponent implements OnInit {
 
   seguros: Seguro [];
-  constructor(private seguroService: SeguroService) { }
+  seguroForm: FormGroup;
+
+  constructor(private formBuilder:FormGroup ,private seguroService: SeguroService) { }
 
   ngOnInit() {
-    this.setSeguros();
+    this.getSeguros();
   }
 
-  setSeguros() {
+  getSeguros() {
     this.seguroService.getSeguros()
     .subscribe(seguros => this.seguros = seguros);
+  }
+  postSeguro(seguro: Seguro) {
+this.seguroService.postSeguro(seguro).subscribe(seguros => this.seguros.push(seguro));
   }
 }
