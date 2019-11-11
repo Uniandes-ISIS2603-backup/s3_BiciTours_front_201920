@@ -1,11 +1,11 @@
-<div class="card-deck m-3">
-    <div class="row">
-        <div class="col">
-            <button type="button m-2" class="btn btn-primary">Crear Blog</button>
-        </div>
+<br>
+<div class="container-fluid" style="width: 100%;" >
+		<div id="welcomeDiv"  style="display:none; width: 100%;" class="answer_list container-fluid" > <app-blog-create-admin></app-blog-create-admin></div>
+		<input type="button" class="btn btn-primary" value="Crear un blog" (click)="showDiv()">
     </div>
-    <div class="row">
-        <div class="col-4" *ngFor="let i of blogs">
+<div class="card-deck m-3">
+    <div class="row ">
+        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let i of blogs">
 
 			<div class="card ml-0 mt-2" style=" text-align: center;"> 
 					<div class="card-body" >
@@ -17,7 +17,7 @@
 							</th>
 							<th >
 								<div class="card-title">
-									<a style="color: black;" routerLink="/blogs/{{i.id}}" routerLinkActive=active routerLinkActive="active-link">{{i.titulo}}</a>
+									<a style="color: black; word-break: break-word;" routerLink="/blogs/{{i.id}}" routerLinkActive=active routerLinkActive="active-link">{{i.titulo}}</a>
 								</div>
 								<div class="card-text">
 									<img class="card-text" src="../../../assets/star.png" style="width:25px;height:25px; text-align: center;">{{i.calificacionPromedio}}

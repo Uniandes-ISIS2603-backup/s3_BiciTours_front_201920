@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Blog } from "../../blog/blog";
 import { BlogDetail } from '../../blog/blog-detail';
 import { BlogService } from "../../blog/blog.service";
+
 @Component({
   selector: "blog-list-admin",
   templateUrl: "./blog-list-admin.component.html",
@@ -10,7 +11,7 @@ import { BlogService } from "../../blog/blog.service";
 export class BlogListAdminComponent implements OnInit {
 
   constructor(private blogService: BlogService) {}
-
+  click: boolean;
   blog_id : number;
   selectedBlog: BlogDetail;
   blogs: Blog[];
@@ -26,6 +27,17 @@ export class BlogListAdminComponent implements OnInit {
 
   ngOnInit() {
     this.getBlogs();
+    this.click=false;
   }
+  showDiv() {
+    if(this.click){
+      document.getElementById('welcomeDiv').style.display = "none";
+    }
+    else{
+      document.getElementById('welcomeDiv').style.display = "block";
+    }
+    
+    this.click=!this.click;
+ }
 
 }
