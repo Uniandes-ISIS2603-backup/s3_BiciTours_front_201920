@@ -4,8 +4,8 @@ import { Comentario } from './comentario';
 import { ComentarioDetail } from './comentario-detail';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const comentarios = 'comentarios.json';
+const API_URL = 'http://localhost:8080/s3_bicitours-api/api';
+const comentarios = '/comentarios';
 
 @Injectable()
 export class ComentarioService {
@@ -25,8 +25,7 @@ export class ComentarioService {
     * @returns The comentario
     */
     getComentarioDetail(comentarioId): Observable<ComentarioDetail> {
-      console.log(comentarioId+" "+API_URL + "comentario-" + comentarioId+".json");
-        return this.http.get<ComentarioDetail>(API_URL + "comentario-" + comentarioId+".json");
+        return this.http.get<ComentarioDetail>(API_URL + comentarios + "/" +  comentarioId);
     }
     
 }
