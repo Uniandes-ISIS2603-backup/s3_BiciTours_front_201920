@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Seguro} from './../../seguros/seguro';
-import {SeguroService} from './../../core/services/seguro.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Seguro } from './../../seguros/seguro';
+import { SeguroService } from './../../core/services/seguro.service';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-insurances',
@@ -10,18 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ListInsurancesComponent implements OnInit {
 
-  seguros: Seguro [];
-  segurosService: SeguroService;
+  seguros: Seguro[];
   seguroForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder , private seguroService: SeguroService) {
-    this.segurosService = seguroService;
-    this.seguroForm = this.formBuilder.group({
-        tipo: [""],
-       condiciones: [""],
-        caracteristicas: [""],
-    });
-   }
+  constructor(private formBuilder: FormBuilder, private seguroService: SeguroService, private router: Router) {
+    this.buildForm();
+  }
 
   ngOnInit() {
     this.getSeguros();
@@ -29,9 +24,29 @@ export class ListInsurancesComponent implements OnInit {
 
   getSeguros() {
     this.seguroService.getSeguros()
-    .subscribe(seguros => this.seguros = seguros);
+      .subscribe(seguros => this.seguros = seguros);
   }
-  postSeguro(seguro: Seguro) {
-this.seguroService.postSeguro(seguro).subscribe(seguros => this.seguros.push(seguro));
+  private buildForm() {
+    this.seguroForm = this.formBuilder.group({
+      tipo: [''],
+      condiciones: [''],
+      caracteristicas: ['']
+    });
   }
+  /*
+  postSeguro(event: Event) {
+
+    console.log('hola');
+
+    event.preventDefault();
+    const seguro = this.seguroForm.value;
+    this.seguroService.postSeguro(seguro)
+      .subscribe(nuevo => {
+         this.router.navigate(['./admin/insurances']);
+      });
+
+    console.log(this.seguroForm.value);
+  }
+  */
+
 }

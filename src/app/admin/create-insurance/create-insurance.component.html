@@ -1,0 +1,28 @@
+<div class="container mt-2">
+    <form  [formGroup]="form" (ngSubmit)="postSeguro($event)">
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="tipo">Tipo</span>
+            </div>
+            <input type="text" id="tipo" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" formControlName="tipo">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="condiciones">Condicion</span>
+            </div>
+            <input type="text" id="condiciones" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" formControlName="condiciones">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Caracteristica</span>
+            </div>
+            <input type="text" id="caracteristicas" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" formControlName="caracteristicas">
+        </div>
+        <button type="button" class="btn btn-primary"  (click)="postSeguro($event)">Save changes</button>
+        <!--  <button type="button" class="btn btn-primary" (click)="postSeguro($event)" data-dismiss="modal">Save changes</button>-->
+    </form>
+</div>
