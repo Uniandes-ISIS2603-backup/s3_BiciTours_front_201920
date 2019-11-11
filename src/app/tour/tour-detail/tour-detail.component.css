@@ -1,0 +1,53 @@
+.container-fluid{
+    background-color:white;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    background: linear-gradient(to right, rgb(255, 255, 255) 25%, rgb(151, 40, 40) 61%, rgb(73, 24, 24) 80%);
+    height: 17px;
+  }
+
+.n{
+  width:87%;
+  border: solid;
+  border-color: lightgray;
+  border-radius: 20px;
+  margin:30px;
+  padding:8px;
+}
+
+.division{
+  border-top:solid;
+  border-color: lightgray;
+  padding:20px;
+
+}
+
+h5,p{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.division:hover{
+  background-color: lightgray;
+
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+h3,h1{
+    font-family:'Pacifico', cursive;
+}
+  
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 30px;
+    width: 5px;
+    position: relative;
+    bottom: 7px;
+    background-color: #111111;
+
+  }

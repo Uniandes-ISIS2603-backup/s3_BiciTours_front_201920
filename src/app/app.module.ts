@@ -13,7 +13,7 @@ import {AdminModule} from './admin/admin.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogModule} from './blog/blog.module';
 import { ComentarioModule} from './comentario/comentario.module';
-
+import { TourModule} from './tour/tour.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { ComentarioModule} from './comentario/comentario.module';
     ContactModule,
     AdminModule,
     BlogModule,
-    ComentarioModule
+    ComentarioModule,
+    TourModule
   ],
   providers: [],
   bootstrap: [AppComponent]

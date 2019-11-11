@@ -1,0 +1,47 @@
+.container-fluid
+{
+    background-color:white;
+}
+
+p{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.crear{
+  text-align:center;
+  border-radius:15px;
+  padding:12px;
+  background-color:#b4d1cf;
+  color:white;
+  right:25%;
+  left:25%;
+  top:8px
+}
+  
+  .n{
+    width:250px;
+    border: solid;
+    border-color: lightgray;
+    border-radius: 20px;
+    margin:30px;
+    padding:20px;
+  }
+  
+  #derecha{
+    float:right;
+    position:relative;
+    top:-15px;
+  }
+  
+  .n:hover{
+    transform: scale(1.1,1.1)
+  }
+
+  h4{
+      font-family:'Pacifico', cursive;
+  }

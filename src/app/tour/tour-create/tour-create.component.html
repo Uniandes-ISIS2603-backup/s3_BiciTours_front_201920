@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <form [formGroup]="tourForm" (ngSubmit)="createTour(tourForm.value)">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Nombre</label>
+        <input type="text" class="form-control" id="validationDefault01" formControlName="nombre" placeholder="Nombre" required>
+      </div>
+    </div>
+<!--    <div class="form-row">
+      <div class="col-md-7">
+        <label for="validationDefault02">Descripción</label>
+        <textarea type="text" class="form-control" id="validationDefault02" formControlName="descripcion" placeholder="Ingrese una descripción del tour" required></textarea>
+      </div>
+    </div>-->
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault023">Dificultad</label>
+        <select class="custom-select custom-select-sm" formControlName="dificultad">
+          <option value="0">BAJA</option>
+          <option value="1">MEDIA</option>
+          <option value="2">ALTA</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Lugar de encuentro</label>
+        <input type="text" class="form-control" id="validationDefault04" formControlName="lugar" placeholder="Ingrese una dirección i.e. Cra 1145 No.7-323" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Fecha</label>
+        <input type="date" name="bday" formControlName="fecha" min="1900-01-02" max="2100-12-31"><br>
+      </div>
+    </div>
+<!--    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault05">Duración</label>
+        <div class="row">
+          <div class="col-md-4"><input type="number" min="0" placeholder="dias" formControlName="dias"></div>
+          <div class="col-md-4"><input type="number" min="0" placeholder="horas" formControlName="horas"></div>
+          <div class="col-md-4"><input type="number" min="0" placeholder="minutos" formControlName="minutos"></div>
+        </div>
+      </div>
+    </div> -->
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault05">Precio</label>
+        <input type="number" formControlName="costo" name="quantity" min="0">COP
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Agregar tour</button>
+  </form>
+</div>
