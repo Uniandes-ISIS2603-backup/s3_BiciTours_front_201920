@@ -7,10 +7,11 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogService } from './blog.service';
 import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogRoutingModule } from './blog-routing.module';
+import { ComentarioModule } from '../comentario/comentario.module';
 
 @NgModule({
   imports: [
-    CommonModule, BlogRoutingModule, ReactiveFormsModule
+    CommonModule, BlogRoutingModule, ReactiveFormsModule, ComentarioModule
   ],
   declarations: [BlogListComponent, BlogDetailComponent, BlogCreateComponent], 
   exports: [BlogListComponent, BlogCreateComponent],
