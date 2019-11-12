@@ -21,8 +21,7 @@ export class SegurosListaComponent implements OnInit {
     'https://www.elpais.com.co/files/article_main/uploads/2019/06/19/5d0a54e48017a.jpeg',
     'https://s6.eestatic.com/2018/07/06/deportes/ciclismo/Ciclismo-Tour_de_Francia-Chris_Froome-Nairo_Quintana-Mikel_Landa-Alejandro_Valverde-Vincenzo_Nibali-Tom_Dumoulin-Geraint_Thomas-Ciclismo_320480518_85711961_1706x960.jpg',
     'http://e00-co-marca.uecdn.es/claro/assets/multimedia/imagenes/2019/07/28/15642694355430.jpg'
-
-  ]
+  ];
   listaSeguros: Seguro [];
 
   ngOnInit() {
@@ -33,8 +32,11 @@ export class SegurosListaComponent implements OnInit {
 
     this.seguroService.getSeguros()
      .subscribe(seguros => this.listaSeguros = seguros);
-    //return new Promise((resolve, reject) => {
-    //  this.seguroService.getSeguros().subscribe(listSeguros => resolve(listSeguros));
+  }
+
+  generarNumeroAzar()
+  {
+    return Math.round(Math.random() * ((this.listaImagenes.length-1) - 0) + 0);
   }
 
 
