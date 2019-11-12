@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Recomendacion } from '../recomendacion';
+import { RecomendacionesService } from './../recomendaciones.service';
 
 @Component({
   selector: 'app-recomendacion',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecomendacionComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router, private recomendacionService: RecomendacionesService) { }
 
-  ngOnInit() {
+  recomendaciones: Recomendacion[];
+
+  
+  getRecomendaciones() {
+
+    this.recomendacionService.getRecomendacion()
+     .subscribe(rec => this.recomendaciones = rec);
+    //return new Promise((resolve, reject) => {
+    //  this.seguroService.getSeguros().subscribe(listSeguros => resolve(listSeguros));
   }
-
+  
+ 
+  ngOnInit() {
+    this.getRecomendaciones();
+  }
 }
+
+

@@ -23,13 +23,14 @@ const routes: Routes = [
     component:FotoCreateComponent
   },
   {
+    path: 'recomendacion',
+    component: RecomendacionComponent
+  },
+  {
     path: ':id',
     component: TourDetailComponent
   },
-  {
-    path: 'recomendacion',
-    component: RecomendacionComponent
-  }
+  
 ];
 
 @NgModule({

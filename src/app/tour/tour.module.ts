@@ -10,6 +10,7 @@ import {TourCreateComponent} from './tour-create/tour-create.component';
 import { TourDetailComponent } from './tour-detail/tour-detail.component';
 import {FotoCreateComponent} from '../foto/foto-create/foto-create.component';
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
+import { RecomendacionesService } from './recomendaciones.service';
 
 
 
@@ -22,6 +23,6 @@ import { RecomendacionComponent } from './recomendacion/recomendacion.component'
     ],
     declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent],
     providers: [TourService],
-    exports:[TourListComponent,TourCreateComponent,FotoCreateComponent]
+    exports:[TourListComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent]
 })
 export class TourModule {}
