@@ -1,1 +1,53 @@
-<p>tour-add-evento works!</p>
+<div id="collapseAddEvento" [ngbCollapse]="isCollapsed">
+    <div class="container-fluid">
+        <h3>Agregar Evento</h3>
+        <form name="create" (ngSubmit)="eventoForm.form.valid && createEvento(eventoForm)" #eventoForm="ngForm" novalidate>
+              <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="eventoNombre"><b>Nombre del evento</b></label>
+                        <input type="text" name="eventoNombre" class="form-control" id="eventoNombre" [(ngModel)]="evento.nombre"
+                               #eventoNombre="ngModel" [ngClass]="{ 'is-invalid': eventoForm.submitted && eventoNombre.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>Debe ingresar el nombre del evento</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="eventoFechaInicio"><b>Fecha de inicio del evento</b></label>
+                        <input type="text" name="eventoFechaInicio" class="form-control" id="eventoFechaInicio" [(ngModel)]="evento.fechaInicio"
+                               #eventoFechaInicio="ngModel" [ngClass]="{ 'is-invalid': eventoForm.submitted && eventoFechaInicio.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>Debe ingresar la fecha de inicio del evento</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="eventoFechaFin"><b>Fecha de Finalizacion del evento</b></label>
+                        <input type="text" name="eventoFechaFin" class="form-control" id="eventoFechaFin" [(ngModel)]="evento.fechaFin"
+                               #eventoFechaFin="ngModel" [ngClass]="{ 'is-invalid': eventoForm.submitted && eventoFechaFin.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>Debe ingresar la fecha de Finalizacion del evento</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="eventoDescripcion"><b>Descripcion</b></label>
+                        <textarea name="eventoDescripcion" class="form-control" id="eventoDescripcion" [(ngModel)]="evento.descripcion"
+                                  #eventoDescripcion="ngModel" [ngClass]="{ 'is-invalid': eventoForm.submitted && eventoDescripcion.invalid }"
+                                  required></textarea>
+                        <div class="invalid-feedback">
+                            <div>Debe ingrasar la descripcion del evento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Agregar evento</button>
+            </div>
+        </form>
+    </div>
+</div>
