@@ -28,4 +28,7 @@ export class ComentarioService {
         return this.http.get<ComentarioDetail>(API_URL + comentarios + "/" +  comentarioId);
     }
     
+    createComentario(comentario: Comentario) {
+        return  this.http.post(API_URL + comentario, comentario);
+      }
 }

@@ -9,16 +9,18 @@ import { FormsModule } from '@angular/forms';
 import {TourCreateComponent} from './tour-create/tour-create.component';
 import { TourDetailComponent } from './tour-detail/tour-detail.component';
 import {FotoCreateComponent} from '../foto/foto-create/foto-create.component';
+import { RecomendacionComponent } from './recomendacion/recomendacion.component';
+
 
 
 @NgModule({
-    imports: [       
+    imports: [
         CommonModule,
         FormsModule,
         TourRoutingModule,
         ReactiveFormsModule
     ],
-    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent],
+    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent],
     providers: [TourService],
     exports:[TourListComponent,TourCreateComponent,FotoCreateComponent]
 })

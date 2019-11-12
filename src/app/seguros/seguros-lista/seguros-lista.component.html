@@ -1,8 +1,8 @@
 <div class="container p">
 
   <div class="row" id="row-cards">
-    <div *ngFor="let e of listaSeguros;index as i " class="col-10 offset-1 card p-2 main-card ">
-      <img src={{listaImagenes[i]}} class="card-img-top" alt="...">
+    <div *ngFor="let e of listaSeguros;index as i" class="col-10 offset-1 card p-2 main-card ">
+      <img src={{listaImagenes[generarNumeroAzar()]}} class="card-img-top" alt="...">
       <div class="card-body text-center">
         <p>
           <button class="btn btn-dark" type="button" data-toggle="modal" [attr.data-target]="'#prueba'+i"

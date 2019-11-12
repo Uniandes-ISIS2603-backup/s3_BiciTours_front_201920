@@ -1,36 +1,17 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <br>
-            <h2 class="text-center">Añadir una calificación</h2>
-            <br>
-            <form name="calificacion" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm">
-                <div class="form-group">
-                    <label for="calificacionGrade"><b>Calificacion</b></label>
-                    <input type="number" name="calificacionGrade" min="0" max="5" step="1" value="0" class="form-control">
-                    <div class="invalid-feedback">
-                        <div>Elige una calificación (0-5)</div>
-                    </div>
-                </div>
-                  <br>
-                <div class="form-group">
-                    <label for="calificacionMensaje"><b>Mensaje</b></label>
-                    <br>
-                    <textarea style="resize:none" name="calificacionMensaje" rows="5" cols="49" class ="form-control" placeholder="Comparte por qué escogiste esta calificación."></textarea>
-                    <div class="invalid-feedback">
-                        <div>El mensaje solo puede tener hasta 250 caracteres (el tamaño de la caja de texto).</div>
-                    </div>
-                </div>
-                <br>
-                <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
-                </div>
-            </form>
-            <br>
-        </div>
-    </div>
+    <br>
+    <a style="font-size: 25px;">Añade un comentario</a>
+    <br>
+    
+     <form>
+        <p>Elige una calificación (0-5) usando las flechas</p>
+        <input type="number" name="calificacion" min="0" max="5" step="1" value="0" class="form-control">
+        <br>
+        <textarea style="resize:none" name="texto" rows="5" cols="49" class ="form-control" placeholder="Comparte por qué escogiste esta calificación."></textarea>
+        <br>
+        <input type = "submit">
+    </form>
+    <br>
 </div>
 <br>
 <br>
