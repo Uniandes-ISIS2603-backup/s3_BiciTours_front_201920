@@ -9,8 +9,12 @@ import { FormsModule } from '@angular/forms';
 import {TourCreateComponent} from './tour-create/tour-create.component';
 import { TourDetailComponent } from './tour-detail/tour-detail.component';
 import {FotoCreateComponent} from '../foto/foto-create/foto-create.component';
+
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
-import { RecomendacionesService } from './recomendaciones.service';
+
+import { TourEventoComponent } from './tour-evento/tour-evento.component';
+import { TourAddEventoComponent } from './tour-add-evento/tour-add-evento.component';
+
 
 
 
@@ -21,7 +25,8 @@ import { RecomendacionesService } from './recomendaciones.service';
         TourRoutingModule,
         ReactiveFormsModule
     ],
-    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent],
+
+    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent, TourEventoComponent, TourAddEventoComponent],
     providers: [TourService],
     exports:[TourListComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent]
 })

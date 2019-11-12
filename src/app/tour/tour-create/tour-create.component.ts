@@ -10,21 +10,31 @@ import {Tour} from '../tour';
   styleUrls: ['./tour-create.component.css']
 })
 export class TourCreateComponent{
-    tourForm: FormGroup;
     tourService: TourService;
     tours: Tour[];
-    constructor(private formBuilder: FormBuilder, tourService:TourService) { 
-        console.log('hole');  
-        this.tourService=tourService; 
+    tourForm: FormGroup;
+    duracionForm: FormGroup;
+
+    constructor(private formBuilder: FormBuilder, tourService : TourService) { 
         this.tourForm = this.formBuilder.group({
-        nombre: ['', [Validators.required, Validators.maxLength(255)]],
-        costo: [''],
-        lugar: ['']
-    });
+        nombre: ['',[Validators.required, Validators.maxLength(255)]],
+        costo: ['',Validators.required, Validators.min(0)],
+        dificultad : [''],
+        lugar:['',Validators.required],
+        descripcion:['',[Validators.required, Validators.maxLength(600)]],
+        fecha:['',Validators.required],
+        duracion:['']
+        });
+
+        this.duracionForm = this.formBuilder.group({
+        dias: [''],
+        horas:[''],
+        minutos:['',Validators.required, Validators.min(0)]});
     }
+
+
     createTour(nuevoTour: Tour){
         nuevoTour.terminado=false;
-        nuevoTour.duracion= 60;
         nuevoTour.id=null,
         this.tourService.createTour(nuevoTour).subscribe((tour:Tour) =>{
             this.tours.push(tour);
@@ -32,14 +42,21 @@ export class TourCreateComponent{
 
     }
 
-    onSubmit(f: Tour) {
-        console.log(f.id);
-        console.log(f.nombre);
-        console.log(f.lugar);
-        console.log(f.duracion);
-        console.log(f.costo);
-        console.log(f.terminado);
-      }
+    ponerDuracion()
+    {
+        let rta: number = 0;
+        if(this.duracionForm.value.horas != null)
+        {
+            rta = rta + this.duracionForm.value.horas*60;
+        }
+        if(this.duracionForm.value.dias != null)
+        {
+            rta = rta + this.duracionForm.value.dias*60*24;
+        }
+        rta = rta+this.duracionForm.value.minutos;
+        this.tourForm.controls['duracion'].setValue(rta);
+        this.createTour(this.tourForm.value);
+    }
 
     gOnInit() {
         
