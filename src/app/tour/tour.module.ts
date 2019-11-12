@@ -9,14 +9,11 @@ import { FormsModule } from '@angular/forms';
 import {TourCreateComponent} from './tour-create/tour-create.component';
 import { TourDetailComponent } from './tour-detail/tour-detail.component';
 import {FotoCreateComponent} from '../foto/foto-create/foto-create.component';
-<<<<<<< Updated upstream
-import { RecomendacionComponent } from './recomendacion/recomendacion.component';
 
-=======
-import { EventoComponent } from './tour-evento/evento/evento.component';
+import { RecomendacionComponent } from './recomendacion/recomendacion.component';
 import { TourEventoComponent } from './tour-evento/tour-evento.component';
 import { TourAddEventoComponent } from './tour-add-evento/tour-add-evento.component';
->>>>>>> Stashed changes
+
 
 
 @NgModule({
@@ -26,11 +23,8 @@ import { TourAddEventoComponent } from './tour-add-evento/tour-add-evento.compon
         TourRoutingModule,
         ReactiveFormsModule
     ],
-<<<<<<< Updated upstream
-    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent],
-=======
-    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, EventoComponent, TourEventoComponent, TourAddEventoComponent],
->>>>>>> Stashed changes
+
+    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent, TourEventoComponent, TourAddEventoComponent],
     providers: [TourService],
     exports:[TourListComponent,TourCreateComponent,FotoCreateComponent]
 })
