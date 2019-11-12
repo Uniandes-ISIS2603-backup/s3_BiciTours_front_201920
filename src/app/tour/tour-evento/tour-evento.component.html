@@ -1,1 +1,16 @@
-<p>tour-evento works!</p>
+<div id="collapseEvento" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let evento of tourEventos">
+                <td>
+                    <dl>
+                        <dt>Nombre del Evento:</dt><dd>{{evento.nombre}}</dd>
+                        <dt>Fecha de inicio:</dt><dd>{{getFecha(evento.fechaInicio)}}</dd>
+                        <dt>Fecha de terminacion:</dt><dd>{{getFecha(evento.fechaFin)}}</dd>
+                        <dt>Descripcion:</dt><dd>{{evento.descripcion}}</dd>
+                    </dl>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

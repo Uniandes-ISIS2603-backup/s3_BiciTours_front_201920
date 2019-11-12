@@ -4,9 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Tour } from './tour';
 import { TourDetail } from './tour-detail';
 import { Observable } from 'rxjs';
+import { Evento } from './evento';
 
 const API_URL = 'http://localhost:8080/s3_bicitours-api/api';
 const tours = '/tours';
+const eventos = '/eventos'
 
 //const API_URL = '../../assets';
 //const tours = '/tours';
@@ -39,4 +41,8 @@ export class TourService {
     createTour(tour: Tour) {
         return  this.http.post(API_URL+tours, tour);
       }
+
+    createEvento(tourId, evento): Observable<Evento> { 
+        return this.http.post<Evento>(API_URL+tours+'/'+tourId+eventos, evento)
+    }
 }
