@@ -8,6 +8,7 @@ import { TourService } from './tour.service';
 import { FormsModule } from '@angular/forms';
 import {TourCreateComponent} from './tour-create/tour-create.component';
 import { TourDetailComponent } from './tour-detail/tour-detail.component';
+import {FotoCreateComponent} from '../foto/foto-create/foto-create.component';
 
 
 @NgModule({
@@ -17,8 +18,8 @@ import { TourDetailComponent } from './tour-detail/tour-detail.component';
         TourRoutingModule,
         ReactiveFormsModule
     ],
-    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent],
+    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent],
     providers: [TourService],
-    exports:[TourListComponent,TourCreateComponent]
+    exports:[TourListComponent,TourCreateComponent,FotoCreateComponent]
 })
 export class TourModule {}

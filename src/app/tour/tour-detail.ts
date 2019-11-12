@@ -4,11 +4,9 @@ import {Blog} from '../blog/blog';
 
 export class TourDetail extends Tour{
 
-  dificultad: number;
-
-  descripcion: string;
-
   fotos: Foto[];
 
   blogs:Blog[];
+
+  //eventos: Envento[]
 }

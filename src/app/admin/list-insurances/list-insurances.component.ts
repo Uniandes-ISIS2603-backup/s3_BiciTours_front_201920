@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Seguro} from './../../seguros/seguro';
-import {SeguroService} from './../../core/services/seguro.service';
+import { Seguro } from './../../seguros/seguro';
+import { SeguroService } from './../../core/services/seguro.service';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-insurances',
@@ -9,15 +11,42 @@ import {SeguroService} from './../../core/services/seguro.service';
 })
 export class ListInsurancesComponent implements OnInit {
 
-  seguros: Seguro [];
-  constructor(private seguroService: SeguroService) { }
+  seguros: Seguro[];
+  seguroForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private seguroService: SeguroService, private router: Router) {
+    this.buildForm();
+  }
 
   ngOnInit() {
-    this.setSeguros();
+    this.getSeguros();
   }
 
-  setSeguros() {
+  getSeguros() {
     this.seguroService.getSeguros()
-    .subscribe(seguros => this.seguros = seguros);
+      .subscribe(seguros => this.seguros = seguros);
   }
+  private buildForm() {
+    this.seguroForm = this.formBuilder.group({
+      tipo: [''],
+      condiciones: [''],
+      caracteristicas: ['']
+    });
+  }
+  /*
+  postSeguro(event: Event) {
+
+    console.log('hola');
+
+    event.preventDefault();
+    const seguro = this.seguroForm.value;
+    this.seguroService.postSeguro(seguro)
+      .subscribe(nuevo => {
+         this.router.navigate(['./admin/insurances']);
+      });
+
+    console.log(this.seguroForm.value);
+  }
+  */
+
 }

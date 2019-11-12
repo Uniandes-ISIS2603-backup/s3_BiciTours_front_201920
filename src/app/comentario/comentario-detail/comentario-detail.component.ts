@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { ComentarioService } from '../comentario.service';
 import { Comentario } from '../comentario';
 import { ComentarioDetail } from '../comentario-detail';
@@ -24,7 +23,7 @@ export class ComentarioDetailComponent implements OnInit {
   ) { }
 
   /**
-  * The comentario whose details we want to show
+  * The comentario whose details we want to show ggg
   */
   @Input() comentarioDetail: ComentarioDetail;
 

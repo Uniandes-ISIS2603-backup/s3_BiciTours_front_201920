@@ -1,8 +1,16 @@
-//import {Usuario} from '../usuario/usuario';
+
+/** import {Usuario} from '../usuario/usuario';
 import {Blog} from '../blog/blog';
+import {Tour} from '../tour/tour';
+ */
+import {Blog} from '../blog/blog';
+
+export interface Comentario {
+
+//import {Usuario} from '../usuario/usuario';
+
 //import {Tour} from '../tour/tour';
 
-export class Comentario {
   /**
   * The comentario's id
   */
@@ -21,16 +29,25 @@ export class Comentario {
   /**
   * The comentario's usuario
   */
+
+  usuario: string; 
+
   //usuario: Usuario; 
+
 
   /**
   * The comentario's blog
   */
-  blog: Blog; 
+
+  blog: string; 
+
 
   /**
   * The comentario's tour
   */
+
+  tour: string; 
   //tour: Tour; 
+
 
 }

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListInsurancesComponent } from './list-insurances/list-insurances.component';
 import { BlogListAdminComponent } from './blog-list-admin/blog-list-admin.component';
 import { NavComponent } from './nav/nav.component';
+import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
 
 const rutas: Routes = [
   {
@@ -12,12 +13,18 @@ const rutas: Routes = [
     children: [
       {
         path: 'insurances',
-        component: ListInsurancesComponent
+        component: ListInsurancesComponent,
+
+      },
+      {
+        path: 'insurances/create-insurances',
+        component: CreateInsuranceComponent,
+
       },
       {
         path: 'blogs',
         component: BlogListAdminComponent
-      }
+      },
     ],
   }
 

@@ -13,5 +13,9 @@ export class Tour{
     fecha:Date;
 
     terminado:boolean;
+
+    dificultad: number;
+    
+    descripcion: string;
   
   }

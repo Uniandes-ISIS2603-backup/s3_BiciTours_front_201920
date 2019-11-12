@@ -16,7 +16,7 @@ p{
   text-align:center;
   border-radius:15px;
   padding:12px;
-  background-color:#b4d1cf;
+  background-color:#C72C41;
   color:white;
   right:25%;
   left:25%;
@@ -25,6 +25,7 @@ p{
   
   .n{
     width:250px;
+    height:400px;
     border: solid;
     border-color: lightgray;
     border-radius: 20px;
@@ -42,6 +43,6 @@ p{
     transform: scale(1.1,1.1)
   }
 
-  h4{
-      font-family:'Pacifico', cursive;
+  h3{
+    font-family: 'Courier New', Courier, monospace;
   }

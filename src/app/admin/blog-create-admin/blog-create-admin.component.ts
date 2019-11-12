@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-import {BlogService} from '../blog.service';
-import {Blog} from '../blog';
+import { Blog } from "../../blog/blog";
+import { BlogService } from "../../blog/blog.service";
 
 @Component({
-  selector: 'app-blog-create',
-  templateUrl: './blog-create.component.html',
-  styleUrls: ['./blog-create.component.css']
+  selector: 'app-blog-create-admin',
+  templateUrl: './blog-create-admin.component.html',
+  styleUrls: ['./blog-create-admin.component.css']
 })
 export class BlogCreateComponent{
     blogForm: FormGroup;

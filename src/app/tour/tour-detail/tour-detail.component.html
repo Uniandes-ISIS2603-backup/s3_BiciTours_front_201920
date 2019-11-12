@@ -59,12 +59,33 @@
 						</div>
 					</div>
 				</div>
-				<div *ngIf="blogs.length > 1">
+				<div *ngIf="blogs.length > 4">
 					<div class="row division">
-						<a>Ver más blogs sobre este tour</a>
+						<a>Ver más blogs sobre este tour</a><!-- Dirije a la ruta de los blogs del tour -->
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- Contiene el itinerario -->
+		<div class="col-md-5">
+				<div class="n" style="width:90%">
+					<h3>Itinerario</h3>
+					<div ><!-- Recorre todos los eventos -->
+						<div class="row division">
+							<div class="col-md-4"><!-- Aquí va las horas donde ocurren los eventos -->
+								
+							</div>
+							<div class="col-md-8"><!-- Aquí la descripción -->
+								
+							</div>
+						</div>
+					</div>
+					<div *ngIf="blogs.length > 7">
+						<div class="row division">
+							<a>Ver itinerario completo</a><!-- Dirije a la ruta de los eventos del tour -->
+						</div>
+					</div>
+				</div>
+			</div>
 	</div>
 </div>

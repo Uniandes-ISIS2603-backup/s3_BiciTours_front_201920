@@ -16,7 +16,7 @@ export class FotoCreateComponent{
     constructor(private formBuilder: FormBuilder, fotoService:FotoService) {   
         this.fotoService=fotoService; 
         this.fotoForm = this.formBuilder.group({
-        Ruta: [""],
+        ruta: [""],
     });
     
     }

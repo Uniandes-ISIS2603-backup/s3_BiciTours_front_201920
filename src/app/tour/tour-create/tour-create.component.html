@@ -6,12 +6,12 @@
         <input type="text" class="form-control" id="validationDefault01" formControlName="nombre" placeholder="Nombre" required>
       </div>
     </div>
-<!--    <div class="form-row">
+   <div class="form-row">
       <div class="col-md-7">
         <label for="validationDefault02">Descripción</label>
         <textarea type="text" class="form-control" id="validationDefault02" formControlName="descripcion" placeholder="Ingrese una descripción del tour" required></textarea>
       </div>
-    </div>-->
+    </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault023">Dificultad</label>
@@ -25,16 +25,20 @@
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault04">Lugar de encuentro</label>
-        <input type="text" class="form-control" id="validationDefault04" formControlName="lugar" placeholder="Ingrese una dirección i.e. Cra 1145 No.7-323" required>
-      </div>
+        <form>
+          <input type="text" class="form-control" id="validationDefault04" formControlName="lugar" placeholder="Ingrese una dirección i.e. Cra 1145 No.7-323" required>
+        </form>
+        </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault04">Fecha</label>
+      <form>
         <input type="date" name="bday" formControlName="fecha" min="1900-01-02" max="2100-12-31"><br>
+      </form>
       </div>
     </div>
-<!--    <div class="form-row">
+   <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Duración</label>
         <div class="row">
@@ -43,13 +47,16 @@
           <div class="col-md-4"><input type="number" min="0" placeholder="minutos" formControlName="minutos"></div>
         </div>
       </div>
-    </div> -->
+    </div> 
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Precio</label>
-        <input type="number" formControlName="costo" name="quantity" min="0">COP
+        <form>
+          <input type="number" formControlName="costo" name="quantity" min="0">COP
+        </form>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Agregar tour</button>
+    <br>
+    <button class="btn btn-primary" style="background-color: #C72C41;" [routerLink] ="['../create/fotos']" type="submit">Siguiente -> </button>
   </form>
 </div>
