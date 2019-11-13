@@ -1,16 +1,14 @@
 <div class="container-fluid">
   <div class="col-md-7" >
-    <div [formGroup]="tourForm" (ngSubmit)="ponerDuracion()">
+    <form [formGroup]="tourForm" (ngSubmit)="ponerDuracion()">
       <br><br>
       <h1>Crear un nuevo tour</h1>
       <br><br>
       <label for="validationDefault01"><Strong>Nombre</Strong></label>
       <input type="text" class="form-control" id="validationDefault01" formControlName="nombre" placeholder="Nombre" required>
-      <div style="color:red" *ngIf="nombre.touched && nombre.hasError('required')">Requerido</div><br>
   
       <label for="validationDefault01"><Strong>Descripción</Strong></label>
       <textarea type="text" class="form-control" id="validationDefault02" formControlName="descripcion" placeholder="Ingrese una descripción del tour" required></textarea>
-      <div style="color:red" *ngIf="descripcion.touched && descripcion.hasError('required')">Requerido</div><br>
   
   
       <label for="validationDefault01"><Strong>Dificultad</Strong></label>
@@ -22,27 +20,24 @@
   
       <label for="validationDefault01"><Strong>Punto de encuentro</Strong></label>
       <input type="text" class="form-control" id="validationDefault04" formControlName="lugar" placeholder="Ingrese una dirección i.e. Cra 1145 No.7-323" required>
-      <div style="color:red" *ngIf="lugar.touched && lugar.hasError('required')">Requerido</div><br>
   
   
       <label for="validationDefault01"><Strong>Fecha</Strong></label><br>
       <input type="date" name="bday" formControlName="fecha" min="1900-01-02" max="2100-12-31">
-      <div style="color:red" *ngIf="fecha.touched && fecha.hasError('required')">Requerido</div>
       <br><br>
   
       <label for="validationDefault01"><Strong>Precio</Strong></label><br>
       <input type="number" formControlName="costo" name="quantity" min="0">COP
-      <div style="color:red" *ngIf="costo.touched && costo.hasError('required')">Requerido</div>
       <br><br>
-    </div>
-      <div [formGroup]="duracionForm">
+      <button style="background-color: #C72C41;"   type="submit">Siguiente -> </button>
+
+    </form>
+      <form [formGroup]="duracionForm">
         <label for="validationDefault01"><Strong>Duración</Strong></label><br>
         <input type="number" min="0" placeholder="dias" formControlName="dias">
         <input type="number" min="0" placeholder="horas" formControlName="horas">
         <input type="number" min="0"  placeholder="minutos" formControlName="minutos">
-        <div style="color:red" *ngIf="minutos.touched && minutos.hasError('required')">Requerido</div>
-      </div>
-      <br><br>
-    <button style="background-color: #C72C41;" [routerLink] ="['../create/fotos']"  type="submit">Siguiente -> </button>
+      </form>
+      <br><br><!--[routerLink] ="['../create/fotos']"-->
   </div>
 </div>

@@ -10,15 +10,14 @@ import {Tour} from '../tour';
   styleUrls: ['./tour-create.component.css']
 })
 export class TourCreateComponent{
-    tourService: TourService;
-    tours: Tour[];
+  //  tours: Tour;
     tourForm: FormGroup;
     duracionForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, tourService : TourService) { 
+    constructor(private formBuilder: FormBuilder, private tourService : TourService) { 
         this.tourForm = this.formBuilder.group({
         nombre: ['',[Validators.required, Validators.maxLength(255)]],
-        costo: ['',Validators.required, Validators.min(0)],
+        costo: [''],
         dificultad : [''],
         lugar:['',Validators.required],
         descripcion:['',[Validators.required, Validators.maxLength(600)]],
@@ -35,11 +34,8 @@ export class TourCreateComponent{
 
     createTour(nuevoTour: Tour){
         nuevoTour.terminado=false;
-        nuevoTour.id=null,
-        this.tourService.createTour(nuevoTour).subscribe((tour:Tour) =>{
-            this.tours.push(tour);
-        });
-
+        nuevoTour.id=7;
+        this.tourService.createTour(nuevoTour).subscribe();
     }
 
     ponerDuracion()
@@ -55,6 +51,8 @@ export class TourCreateComponent{
         }
         rta = rta+this.duracionForm.value.minutos;
         this.tourForm.controls['duracion'].setValue(rta);
+        this.tourForm.controls['fecha'].setValue(`${this.tourForm.value.fecha}T05:00:00Z[UTC]`);
+        console.log(this.tourForm.value);
         this.createTour(this.tourForm.value);
     }
 
