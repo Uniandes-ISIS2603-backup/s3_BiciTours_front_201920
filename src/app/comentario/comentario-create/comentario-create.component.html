@@ -3,8 +3,7 @@
     <a style="font-size: 25px;">Añade un comentario</a>
     <br>
     <form [formGroup]="formC" (ngSubmit)="onSubmit()">
-        <div *ngIf="calificacion.invalid"> La calificación no puede ser decimal y debe estar entre 0 y 5. </div>
-        <div *ngIf="texto.invalid"> El comentario no puede tener más de 250 caracteres </div>
+        
         <p>Elige una calificación (0-5) usando las flechas</p>
         <input  type="number" min="0" max="5" step="1" value="0" formControlName="calificacion">
         <br>

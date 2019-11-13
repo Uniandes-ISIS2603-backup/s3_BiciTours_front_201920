@@ -5,7 +5,7 @@ import {Tour} from '../tour/tour';
  */
 import {Blog} from '../blog/blog';
 
-export interface Comentario {
+export class Comentario {
 
 //import {Usuario} from '../usuario/usuario';
 

@@ -29,6 +29,7 @@ export class ComentarioService {
     }
     
     createComentario(comentario: Comentario) {
-        return  this.http.post(API_URL + comentario, comentario);
+        console.log(comentario);
+        return  this.http.post(API_URL + comentarios, comentario);
       }
 }

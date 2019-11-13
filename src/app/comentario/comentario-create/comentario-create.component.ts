@@ -28,8 +28,13 @@ export class ComentarioCreateComponent implements OnInit {
     comentario: Comentario;
 
     onSubmit(): void {
+      this.comentario = new Comentario;
       this.comentario.calificacion = this.formC.get('calificacion').value;  
       this.comentario.texto = this.formC.get('texto').value;
+      console.log("comentario submit:" + this.comentario);
+      console.log("comentario submit calif:" + this.comentario.calificacion);
+      console.log("comentario submit text:" + this.comentario.texto);
+
       this.createComentario();
     }
 
@@ -50,8 +55,10 @@ export class ComentarioCreateComponent implements OnInit {
     */
     createComentario(): Comentario { 
         this.comentarioService.createComentario(this.comentario)
-            .subscribe((comentario : Comentario) => {
-                this.comentario = comentario;
+            .subscribe((c : Comentario) => {
+                
+                this.comentario = c;
+                console.log("comentario servicio:" + c);
                 this.create.emit();
                 this.toastrService.success("The comentario was created", "comentario creation");
 
