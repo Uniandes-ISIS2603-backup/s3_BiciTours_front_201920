@@ -5,10 +5,11 @@ import { ComentarioCreateComponent } from './comentario-create/comentario-create
 import { ComentarioService } from './comentario.service';
 import { ComentarioDetailComponent } from './comentario-detail/comentario-detail.component';
 import { ComentarioRoutingModule } from './comentario-routing.module';
-//import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ CommonModule, ComentarioRoutingModule],
+  imports: [ CommonModule, ComentarioRoutingModule, FormsModule, ReactiveFormsModule],
   declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent],
   exports: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent],
   providers: [ComentarioService]
