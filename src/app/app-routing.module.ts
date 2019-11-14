@@ -20,6 +20,14 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
+        path: 'usuario',
+        loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)
+      },
+      {
+        path: 'usuario-login',
+        loadChildren: () => import('./usuario/login/login.module').then(m => m.LoginModule)
+      },
+      {
         path: 'seguros',
         loadChildren: () => import('./seguros/seguros.module').then(m => m.SegurosModule)
       },

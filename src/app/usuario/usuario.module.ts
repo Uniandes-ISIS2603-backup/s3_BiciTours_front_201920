@@ -9,6 +9,7 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 
 
+
 @NgModule({
   imports: [
     CommonModule, UsuarioRoutingModule, ReactiveFormsModule
