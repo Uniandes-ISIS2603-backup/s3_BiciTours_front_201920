@@ -20,23 +20,19 @@
 
 			<div class="card ml-0 mt-2" style=" text-align: center;" id="info"> 
 					<div class="card-body" >
-					<div class="container-fluid">
-						<table class="container-fluid">
-							<tbody>
+					<div>
+						<table style="width: 100%;">
+							<tbody style="width: 100%;">
 							<th style=" width:100px;height:100px;">
-								<tr>
-									<img src="{{i.rutaImagen}}" style="border:2px solid black;width:100px;height:100px;" onerror="src='../../../assets/Blank_File.png'; style='width:100px;height:100px; vertical-align: middle;'">
-								</tr>		
+									<img src="{{i.rutaImagen}}" style="border:2px solid black;width:100px;height:100px;" onerror="src='../../../assets/Blank_File.png'; style='width:100px;height:100px; vertical-align: middle;'">		
 							</th>
-							<th >
-								<tr>
-										<div class="card-title">
+							<th style="width: 100%;">
+										<div class="card-title" style="width: 100%;">
 												<a style="color: black; word-break: break-word; font-size: 20px;" routerLink="/blogs/{{i.id}}" routerLinkActive=active routerLinkActive="active-link" id="titulo">{{i.titulo}}</a>
 											</div>
 											<div class="card-text">
 												<img class="card-text" src="../../../assets/star.png" style="width:25px;height:25px; text-align: center;">{{i.calificacionPromedio}}
 											</div>
-								</tr>
 							</th>
 						</tbody>
 						</table>	

@@ -37,7 +37,7 @@ export class BlogListAdminComponent implements OnInit {
   tr = listas.getElementsByTagName("div");
 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("tr")[1];
+    td = tr[i].getElementsByTagName("th")[1];
     console.log(td)
     if (td) {
       txtValue = td.textContent || td.innerText;
