@@ -41,4 +41,5 @@ export class BlogCreateComponent{
         this.toastr.success("Blog", "Creado exitosamente!", {"progressBar": true,timeOut:1500});
         location.reload();
       }
+      
 }

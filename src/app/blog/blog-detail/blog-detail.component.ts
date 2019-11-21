@@ -13,7 +13,6 @@ import { Blog } from '../blog';
 })
 export class BlogDetailComponent implements OnInit {
 @Input() blogDetail: BlogDetail;
-  public blog: Blog;
 
   constructor(
     private route: ActivatedRoute,
