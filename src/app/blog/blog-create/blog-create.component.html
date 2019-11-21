@@ -1,5 +1,5 @@
-
-<div class="container-fluid" style="width: 70%; text-align: center; outline: solid black  2px; background-color: #C72C41; color: black; font-weight: bold;" >
+<br>
+<div class="container-fluid" style="width: 70%; text-align: center; outline: solid black  2px; background-color: #C72C41; color: white; font-weight: bold; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" >
         <br>
         <a style="font-size: 35px;">Crear un blog</a>
         <br>
@@ -7,25 +7,25 @@
     <form [formGroup]="blogForm" (ngSubmit)="createBlog(blogForm.value)">
         <div>
             <label for="titulo"style="font-size: 25px;" >Titulo</label>
-            <input novalidate id="titulo" class="form-control" formControlName="titulo" placeholder="Escriba el titulo de su blog" >
+            <input novalidate id="titulo" class="form-control" formControlName="titulo" placeholder="Escriba el titulo de su blog" style="font-size: 20px;">
             <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('titulo').hasError('required') && blogForm.get('titulo').touched">
             Titulo requerido
             </div>
         </div>
         <div class="form-group">
             <label for="texto"style="font-size: 25px;">Texto</label>
-            <textarea rows="4" cols="50" name="comment" novalidate id="texto" class="form-control" formControlName="texto" placeholder="Escriba el texto de su blog"></textarea>
+            <textarea rows="4" cols="50" name="comment" novalidate id="texto" class="form-control" formControlName="texto" placeholder="Escriba el texto de su blog" style="font-size: 20px;"></textarea>
             <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('texto').hasError('required') && blogForm.get('texto').touched">
             Texto requerido
             </div>
         </div>
         <div class="form-group">
             <label for="rutaImagen"style="font-size: 25px;">Ruta imagen en linea</label>
-            <input novalidate id="rutaImagen" class="form-control" formControlName="rutaImagen" placeholder="Escriba la ruta de la imagen">
+            <input novalidate id="rutaImagen" class="form-control" formControlName="rutaImagen" placeholder="Escriba la ruta de la imagen" style="font-size: 20px;">
         </div>
         <div class="form-group">
-            <label for="titulo"style="font-size: 25px;">Ruta video en linea</label>
-            <input novalidate id="rutaVideo" class="form-control" formControlName="rutaVideo" placeholder="Escriba el titulo de su blog">
+            <label for="rutaVideo"style="font-size: 25px;">Ruta video en linea</label>
+            <input novalidate id="rutaVideo" class="form-control" formControlName="rutaVideo" placeholder="Escriba el titulo de su blog" style="font-size: 20px;">
         </div>
         <button class="button" type="submit" [disabled]="blogForm.invalid">Crear blog</button>
         <br>

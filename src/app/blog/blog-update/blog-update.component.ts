@@ -70,7 +70,7 @@ export class BlogUpdateComponent implements OnInit{
       this.blogDetail = blogDetail;
       this.blogService.deleteBlog(blogDetail).subscribe((blog:Blog) =>{
         this.showSuccessDelete();
-        window.location.pathname="/blogs"
+        window.history.back();
     });
     });
 }

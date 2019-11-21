@@ -31,6 +31,7 @@ export class BlogCreateComponent{
         this.blogService.createBlog(nuevoBlog).subscribe((blog:Blog) =>{
             this.blogs.push(blog);
             this.showSuccess();
+            window.history.back();
         });
 
         this.blogForm.reset();
