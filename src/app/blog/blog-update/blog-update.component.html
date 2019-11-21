@@ -28,6 +28,7 @@
             <input novalidate id="rutaVideo" class="form-control" formControlName="rutaVideo" placeholder="Escriba el titulo de su blog">
         </div>
         <button class="button" type="submit" [disabled]="blogForm.invalid">Editar blog</button>
+        <input type="button" class="btn btn-primary" value="Borrar blog" (click)="deleteBlog()">
         <br>
         <br>
     </form>

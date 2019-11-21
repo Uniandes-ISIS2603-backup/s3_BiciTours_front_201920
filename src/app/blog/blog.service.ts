@@ -30,4 +30,8 @@ export class BlogService {
   updateBlog(blog: Blog) {
     return  this.http.put(API_URL + blogs+"/"+blog.id, blog);
   }
+
+  deleteBlog(blog: Blog) {
+    return  this.http.delete(API_URL + blogs+"/"+blog.id);
+  }
 }

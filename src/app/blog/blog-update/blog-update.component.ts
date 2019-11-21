@@ -16,6 +16,7 @@ export class BlogUpdateComponent implements OnInit{
     @Input() blogDetail: BlogDetail;
     blog_id: number;
     blogs: Blog[];
+    calificacion:number;
     constructor( private route: ActivatedRoute,private formBuilder: FormBuilder, private blogService: BlogService, private toastr: ToastrService) {   
         this.blog_id = route.snapshot.params['id']; 
         this.blogs=[];      
@@ -30,10 +31,15 @@ export class BlogUpdateComponent implements OnInit{
         this.toastr.success("Blog", "Editado exitosamente!", {"progressBar": true,timeOut:1500});
         location.reload();
       }
+      showSuccessDelete() {
+        this.toastr.success("Blog", "Borrado exitosamente!", {"progressBar": true,timeOut:1500});
+        location.reload();
+      }
     getBlogDetail(): void {
         this.blogService.getBlogDetail(this.blog_id)
           .subscribe(blogDetail => {
             this.blogDetail = blogDetail;
+            this.calificacion=blogDetail.calificacionPromedio
             this.blogForm = this.formBuilder.group({
               titulo: [this.blogDetail.titulo],
               texto: [this.blogDetail.texto],
@@ -44,15 +50,28 @@ export class BlogUpdateComponent implements OnInit{
       }
     ngOnInit() {
       this.getBlogDetail();
+      console.log(window.location.hostname)
     }
     updateBlog(nuevoBlog: Blog){
       nuevoBlog.id=this.blog_id;
+      nuevoBlog.calificacionPromedio=this.calificacion;
       this.blogService.updateBlog(nuevoBlog).subscribe((blog:Blog) =>{
           this.blogs.push(blog);
           this.showSuccess();
+          window.location.pathname="/blogs/"+this.blog_id
       });
 
       this.blogForm.reset();
       
-  }
+  }    
+  deleteBlog( ){
+    this.blogService.getBlogDetail(this.blog_id)
+    .subscribe(blogDetail => {
+      this.blogDetail = blogDetail;
+      this.blogService.deleteBlog(blogDetail).subscribe((blog:Blog) =>{
+        this.showSuccessDelete();
+        window.location.pathname="/blogs"
+    });
+    });
+}
 }
