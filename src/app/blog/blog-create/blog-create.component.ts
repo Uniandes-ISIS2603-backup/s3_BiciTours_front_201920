@@ -19,7 +19,7 @@ export class BlogCreateComponent{
         this.blogs=[];
         this.blogService = blogService; 
         this.blogForm = this.formBuilder.group({
-        titulo: [""],
+        titulo: ["", [Validators.required,Validators.minLength(8)]],
         texto: [""],
         rutaImagen: [""],
         rutaVideo: [""],
@@ -31,6 +31,7 @@ export class BlogCreateComponent{
         this.blogService.createBlog(nuevoBlog).subscribe((blog:Blog) =>{
             this.blogs.push(blog);
             this.showSuccess();
+            window.history.back();
         });
 
         this.blogForm.reset();
@@ -41,5 +42,12 @@ export class BlogCreateComponent{
         this.toastr.success("Blog", "Creado exitosamente!", {"progressBar": true,timeOut:1500});
         location.reload();
       }
-      
+      matchYoutubeUrl(url) {
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        var matches = url.match(p);
+        if(matches){
+            return matches[1];
+        }
+        return false;
+    }
 }

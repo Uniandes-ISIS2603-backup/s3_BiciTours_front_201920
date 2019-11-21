@@ -1,14 +1,17 @@
 <br>
 	<div class="container-fluid" style=" background: #C72C41; width: 70%; border: 10px solid black; text-align: center; color: white;">
 			
-					<div style="font-size: 30px; text-align: center;">{{blogDetail.titulo}}</div>
-					<div style="text-align: center;">Calificacion Promedio: <img src="../../../assets/star.png" style="width:15px;height:15px; align-self: auto; word-break: break-word; ">{{blogDetail.calificacionPromedio}}</div>
+					<div style="font-size: 35px; text-align: center; font-weight: bold;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">{{blogDetail.titulo}}</div>
+					<div style=" text-align: center; font-size: 20px;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Calificacion Promedio: <img src="../../../assets/star.png" style="  margin-left: auto;margin-right: auto;width:20px;height:20px; vertical-align: middle; top: 0%;">{{blogDetail.calificacionPromedio}}</div>
+					<div id="video">
+							<iframe [src]="videoURL()" allowfullscreen style="height: 400px; width: 500px; border:2px solid black; "  onerror="this.style.display='none'"></iframe>
+					</div>
 					<br>
 					<div>
 							<img src="{{blogDetail.rutaImagen}}" style="max-height: 400px; max-width: 500px; border:2px solid black; " onerror="this.style.display='none'">
 					</div>
 					<br>
-					<div style="border:2px solid black; background: white; color: black; word-wrap: break-word;">{{blogDetail.texto}}</div>	
+					<div style="border:2px solid black; background: white; color: black; word-wrap: break-word; font-size: 20px;">{{blogDetail.texto}}</div>	
 <br>
 					
 	</div>

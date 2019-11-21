@@ -21,7 +21,7 @@ export class BlogUpdateComponent implements OnInit{
         this.blog_id = route.snapshot.params['id']; 
         this.blogs=[];      
         this.blogForm = this.formBuilder.group({
-          titulo: [""],
+          titulo: ["", [Validators.required,Validators.minLength(8)]],
           texto: [""],
           rutaImagen: [""],
           rutaVideo: [""],
@@ -41,7 +41,7 @@ export class BlogUpdateComponent implements OnInit{
             this.blogDetail = blogDetail;
             this.calificacion=blogDetail.calificacionPromedio
             this.blogForm = this.formBuilder.group({
-              titulo: [this.blogDetail.titulo],
+              titulo: [this.blogDetail.titulo, [Validators.required,Validators.minLength(8)]],
               texto: [this.blogDetail.texto],
               rutaImagen: [this.blogDetail.rutaImagen],
               rutaVideo: [this.blogDetail.rutaVideo],
@@ -70,7 +70,7 @@ export class BlogUpdateComponent implements OnInit{
       this.blogDetail = blogDetail;
       this.blogService.deleteBlog(blogDetail).subscribe((blog:Blog) =>{
         this.showSuccessDelete();
-        window.location.pathname="/blogs"
+        window.history.back();
     });
     });
 }

@@ -15,6 +15,7 @@ export class BlogListComponent implements OnInit {
   selectedBlog: BlogDetail;
   blogs: Blog[];
   
+
    onSelected(blog_id: number): void {
     this.blog_id = blog_id;
     this.selectedBlog = new BlogDetail();
@@ -26,20 +27,19 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit() {
     this.getBlogs();
-    
   }
-  buscar(){
+  buscar(): void{
     
       var input, filter, listas, tr, td, i, txtValue;
       
-      input = document.getElementById("myInput");
+      input = document.getElementById("buscar");
       filter = input.value.toUpperCase();
       listas = document.getElementById("listas");
       tr = listas.getElementsByTagName("table");
       
     
       // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
+      for (i = 1; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("th")[1];
         if (td) {
           txtValue = td.textContent || td.innerText;
