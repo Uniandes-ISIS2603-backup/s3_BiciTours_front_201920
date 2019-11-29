@@ -35,26 +35,26 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-8">
           <a class="crear" [routerLink]="['create']">Crear nuevo tour</a>
           <a class="crear ml-1" [routerLink]="['recomendacion']">Ver Recomendaciones</a>
         </div>
       </div>
       <div class="row">
         <div class="box">
-          <div *ngFor="let i of tours">
-            <div class="n" [routerLink]="[i.id]">
-              <img src={{i.fotos[0].ruta}} width="100%" height="150px" style="border-radius:18px"><br><br>
-              <h5>{{i.nombre}}</h5>
+          <div *ngFor="let i of tours; index as j">
+            <div class="n" [routerLink]="[tours[j].id]">
+             <img src={{tours[j].fotos[0].ruta}} width="100%" height="150px" style="border-radius:18px"><br><br>
+             <h5>{{tours[j].nombre}}</h5>
 
-              <strong>Lugar:</strong> {{i.lugar}} <br>
-              <strong>Duración:</strong> {{i.duracion}}<br>
-              <strong>Fecha:</strong> {{i.fecha}}
+              <strong>Lugar:</strong> {{tours[j].lugar}} <br>
+              <strong>Duración:</strong> {{tours[j].duracion}}<br>
+              <strong>Fecha:</strong> {{tours[j].fecha}}
               <h4>Recomendacion:</h4>
               <strong>Tipo Bicicelta:</strong>
               <strong>Indumentaria:</strong>
 
-              <h4 id="derecha">${{i.costo}}</h4>
+              <h4 id="derecha">${{tours[j].costo}}</h4>
             </div>
           </div>
         </div>

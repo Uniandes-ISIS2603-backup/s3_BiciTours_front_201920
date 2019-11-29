@@ -1,23 +1,17 @@
-<div class="container-fluid">
-    <h3>Agregar fotos</h3>
-    <form>
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Link de la imágen" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Link de la imágen" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Link de la imágen" required>
-            </div>
-        </div>
-    <button id="agregar">Agregar más</button>
-</form>
-<br><br><br><br>
-<button class="btn btn-primary" style="background-color: #C72C41;" type="submit">Siguiente -> </button>
+<div class="row">
+<div class="fotos">
+    <button id="anterior" (click)="anterior()"></button>
+    <div class="panelFoto">
+        <img id="foto" src={{imageUrl}}>
+        <form [formGroup]="fotosForm"  >
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)"/>
+        </form>
+    </div>
+    <button id="siguiente" (click)="siguiente()"></button>
+</div>
+<div class="row">
+    <div class="fotitos" *ngFor="let i of fotos,index as k">
+        <img class="imagen" id={{k}} src={{i.ruta}} (click)="seleccionarImagen(k)">
+    </div>
+</div>
 </div>

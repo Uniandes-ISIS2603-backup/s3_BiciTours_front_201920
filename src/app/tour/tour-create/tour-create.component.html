@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <div class="row">
   <div class="col-md-7" >
     <form [formGroup]="tourForm" (ngSubmit)="ponerDuracion()">
       <br><br>
@@ -40,4 +41,8 @@
       </form>
       <br><br><!--[routerLink] ="['../create/fotos']"-->
   </div>
+  <div class="col-md-5">
+    <app-foto-create></app-foto-create>
+  </div>
+</div>
 </div>
