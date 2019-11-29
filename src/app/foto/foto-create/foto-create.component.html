@@ -1,13 +1,13 @@
 <div class="row">
 <div class="fotos">
-    <button id="anterior" (click)="anterior()"></button>
+    <button id="anterior" (click)="anterior()" disabled></button>
     <div class="panelFoto">
         <img id="foto" src={{imageUrl}}>
         <form [formGroup]="fotosForm"  >
             <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)"/>
         </form>
     </div>
-    <button id="siguiente" (click)="siguiente()"></button>
+    <button id="siguiente" (click)="siguiente()" disabled></button>
 </div>
 <div class="row">
     <div class="fotitos" *ngFor="let i of fotos,index as k">
