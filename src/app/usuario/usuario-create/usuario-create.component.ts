@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms'; //librerías para relación entre formularios y componentes
-import {Usuario} from '../usuario';
-import {UsuarioService} from '../usuario.service';
-import {ToastrService} from 'ngx-toastr';
+import { Usuario} from '../usuario';
+import { UsuarioService} from '../usuario.service';
+import { ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-usuario-create',
