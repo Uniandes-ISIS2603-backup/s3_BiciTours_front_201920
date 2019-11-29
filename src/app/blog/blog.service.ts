@@ -10,18 +10,28 @@ const blogs = "/blogs";
 @Injectable()
 export class BlogService {
 
+  todos: Blog[];
+  uno: Blog;
+
   constructor(private http: HttpClient) { }
 
   getBlogs() : Observable<Blog[]> {
         return this.http.get<Blog[]>(API_URL + blogs);
     }
-    todos: Blog[];
-    uno: Blog;
-    getBlogDetail(blogId:number): Observable<BlogDetail> {
+
+  getBlogDetail(blogId:number): Observable<BlogDetail> {
     return this.http.get<BlogDetail>(API_URL + blogs+"/"+blogId);
   }    
 
   createBlog(blog: Blog) {
     return  this.http.post(API_URL + blogs, blog);
+  }
+
+  updateBlog(blog: Blog) {
+    return  this.http.put(API_URL + blogs+"/"+blog.id, blog);
+  }
+
+  deleteBlog(blog: Blog) {
+    return  this.http.delete(API_URL + blogs+"/"+blog.id);
   }
 }
