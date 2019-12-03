@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-2">
       <table class="table table-striped">
-        <thead class="thead-dark">
+        <thead class="thead-dark" *ngFor="let i of usuarios">
           <tr>
-            <th>Nombre</th>
+            <th>{{i.nombre}}</th>
           </tr>
         </thead>
         <tbody>

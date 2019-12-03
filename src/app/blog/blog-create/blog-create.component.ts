@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
 import {BlogService} from '../blog.service';
 import {Blog} from '../blog';
 
@@ -40,7 +39,6 @@ export class BlogCreateComponent{
 
     showSuccess() {
         this.toastr.success("Blog", "Creado exitosamente!", {"progressBar": true,timeOut:1500});
-        location.reload();
       }
       matchYoutubeUrl(url) {
         var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
