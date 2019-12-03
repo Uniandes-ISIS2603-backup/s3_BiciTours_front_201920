@@ -21,5 +21,8 @@ export class SeguroService {
   postSeguro(seguro: Seguro) {
     return  this.http.post(API_URL + seguros, seguro);
   }
+  updateSeguro(seguro: Seguro) {
+    return  this.http.put(API_URL + seguros + '/' + seguro.id, seguro);
+  }
 
 }

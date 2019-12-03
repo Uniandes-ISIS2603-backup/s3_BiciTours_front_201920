@@ -28,7 +28,6 @@ export class CreateInsuranceComponent implements OnInit {
 
 
   private buildForm() {
-    console.log('se construo');
     this.form = this.formBuilder.group({
       tipo: [''],
       condiciones: [''],
@@ -38,7 +37,6 @@ export class CreateInsuranceComponent implements OnInit {
 
   postSeguro(event: Event) {
 
-    console.log('hola');
     event.preventDefault();
     const seguro = this.form.value;
     this.seguroService.postSeguro(seguro)
@@ -46,6 +44,5 @@ export class CreateInsuranceComponent implements OnInit {
          this.router.navigate(['./admin/insurances']);
       });
 
-    console.log(this.form.value);
   }
 }
