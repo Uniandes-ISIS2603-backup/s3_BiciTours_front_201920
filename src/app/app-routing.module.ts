@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NgxPermissionsGuard } from 'ngx-permissions';
 
 const routes: Routes = [
   {

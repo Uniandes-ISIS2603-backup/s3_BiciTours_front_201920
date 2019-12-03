@@ -17,7 +17,6 @@ import { ComentarioModule } from './comentario/comentario.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxPermissionsModule } from 'ngx-permissions';
 
 
 @NgModule({
@@ -43,7 +42,6 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPermissionsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

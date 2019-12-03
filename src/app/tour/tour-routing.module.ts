@@ -6,7 +6,6 @@ import { TourDetailComponent} from './tour-detail/tour-detail.component';
 import { TourCreateComponent} from './tour-create/tour-create.component';
 import { FotoCreateComponent} from '../foto/foto-create/foto-create.component';
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
-import {NgxPermissionsGuard} from 'ngx-permissions';
 
 
 
