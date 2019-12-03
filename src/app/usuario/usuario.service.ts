@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
+import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions';
 import {Router} from '@angular/router';
 
 import { Usuario} from "./usuario"
@@ -100,5 +100,4 @@ logout (): void {
   updateUsuario(usuarioActualizado: Usuario): Observable<any> {
     return this.http.put(backUrl+usuarios+"/"+usuarioActualizado.id, usuarioActualizado);
   }
-  
 }
