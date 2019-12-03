@@ -12,10 +12,13 @@ import { ContactModule } from './contacto/contact.module';
 import { AdminModule } from './admin/admin.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogModule } from './blog/blog.module';
+import { UsuarioModule } from './usuario/usuario.module';
 import { ComentarioModule } from './comentario/comentario.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPermissionsModule } from 'ngx-permissions';
+
 
 @NgModule({
   declarations: [
@@ -33,12 +36,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactModule,
     AdminModule,
     BlogModule,
+    UsuarioModule,
     ComentarioModule,
     TourModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPermissionsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

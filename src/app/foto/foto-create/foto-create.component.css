@@ -1,7 +1,76 @@
-.container-fluid{
-    background-color:white;
+.fotos {
+    display: flex;
+}
+.panelFoto{
+  width:375px;
+  height:290px;
+  overflow: hidden;
 }
 
-#agregar{
-    float:left;
+#agregarFoto{
+  width:100%;
+  background-color:rgb(11, 182, 68);
+  margin-top:-25px;
 }
+
+.imagen{
+  margin:4px;
+  width:60px;
+  height:60px;
+  border-radius:10px;
+  opacity: 0.5;
+}
+
+.imagen:hover{
+  opacity: 1;
+  cursor:pointer;
+}
+
+#foto{
+  width:355px;
+  height:224px;
+}
+
+::-webkit-file-upload-button {
+  background: lightgray;
+  color: black;
+  padding: 1em;
+  border:none;
+  width:375px;
+}
+
+.fotitos{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#siguiente, #anterior{
+  width:50px;
+  outline:none;
+}
+
+#siguiente{
+margin-bottom:120px;
+background: url("https://i.imgur.com/209weSO.png") no-repeat;
+transform: scale(1, -1);
+}
+
+#anterior{
+margin-bottom: 120px;
+background: url("https://i.imgur.com/209weSO.png") no-repeat;
+transform: scale(-1, -1);
+}
+
+button{
+  border:none;
+}
+
+#anterior:hover{
+  transform: scale(-1.1,-1.1)
+}
+
+#siguiente:hover{
+  transform: scale(1.1,-1.1)
+}
+
+

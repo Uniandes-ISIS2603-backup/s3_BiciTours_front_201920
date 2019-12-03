@@ -2,7 +2,7 @@
 	<!-- Primera fila: Contiene las fotos, nombre del tour y sus atributos que no son arreglos -->
 	<div class="row">
 		<div class="col-md-4">
-			<!-- Carrusel de fotos -->
+			<!-- Carrusel de fotos --
 			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active">
@@ -20,7 +20,7 @@
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 						<span class="sr-only">Next</span>
 			    </a>
-			</div>
+			</div>-->
 		</div>
 		<div class="col-md-5">
 			<div class="row">
@@ -46,7 +46,7 @@
 	</div>
 	<div class="row">
 		<!-- Contiene los blogs -->
-		<div class="col-md-4">
+		<div class="col-md-4" *ngIf="blogs != null">
 			<div class="n" *ngIf="blogs.length > 0">
 				<h3>Blogs</h3>
 				<div *ngFor="let i of blogs">
@@ -80,7 +80,7 @@
 							</div>
 						</div>
 					</div>
-					<div *ngIf="blogs.length > 7">
+					<div *ngIf="">
 						<div class="row division">
 							<a>Ver itinerario completo</a><!-- Dirije a la ruta de los eventos del tour -->
 						</div>

@@ -8,13 +8,14 @@ import { BlogService } from './blog.service';
 import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogRoutingModule } from './blog-routing.module';
 import { ComentarioModule } from '../comentario/comentario.module';
+import { BlogUpdateComponent} from './blog-update/blog-update.component';
 
 @NgModule({
   imports: [
     CommonModule, BlogRoutingModule, ReactiveFormsModule, ComentarioModule
   ],
-  declarations: [BlogListComponent, BlogDetailComponent, BlogCreateComponent], 
-  exports: [BlogListComponent, BlogCreateComponent],
+  declarations: [BlogListComponent, BlogDetailComponent, BlogCreateComponent, BlogUpdateComponent], 
+  exports: [BlogListComponent, BlogCreateComponent, BlogUpdateComponent],
   providers: [BlogService]
 })
 export class BlogModule { }

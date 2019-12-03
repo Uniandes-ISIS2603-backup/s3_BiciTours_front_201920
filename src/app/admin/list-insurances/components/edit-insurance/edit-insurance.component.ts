@@ -22,7 +22,9 @@ export class EditInsuranceComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = params.id;
       this.seguroService.getSeguro(this.id)
-      .subscribe()
+      .subscribe(respuesta => {
+        
+      });
 
     });
   }

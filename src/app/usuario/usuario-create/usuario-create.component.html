@@ -10,11 +10,12 @@
 			<input novalidate id="nombre" class="form-control" formControlName="nombre"
 				placeholder="Tu nombre completo (de mínimo 5 caracteres)">
 		</div>
-		<div class="alert alert-danger alert-dismissible fade show" *ngIf="clientForm.get('nombre').hasError('required') && 
-  clientForm.get('nombre').touched">
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('nombre').hasError('required') && 
+		usuarioForm.get('nombre').touched">
 			Nombre requerido
 		</div>
-		<div class="alert alert-danger alert-dismissible fade show" *ngIf="nombre.errors.minlength">
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('nombre').hasError('minlength') && 
+		usuarioForm.get('nombre').touched">
 			El nombre debe tener al menos 5 caracteres.
 		</div>
 
@@ -22,11 +23,12 @@
 			<label for="correo"> Correo </label>
 			<input id="correo" type="text" class="form-control" formControlName="correo" placeholder="Tu correo">
 		</div>
-		<div class="alert alert-danger alert-dismissible fade show" *ngIf="clientForm.get('correo').hasError('required') && 
-  clientForm.get('correo').touched">
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('correo').hasError('required') && 
+		usuarioForm.get('correo').touched">
 			Correo requerido
 		</div>
-		<div class="alert alert-danger alert-dismissible fade show" *ngIf="correo.errors.email">
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('correo').hasError('email') && 
+		usuarioForm.get('correo').touched">
 			El formato de correo es incorrecto.
 		</div>
 
@@ -35,13 +37,14 @@
 			<input id="password" type="text" class="form-control" formControlName="password"
 				placeholder="Tu password (de mínimo 8 caracteres)">
 		</div>
-		<div class="alert alert-danger alert-dismissible fade show" *ngIf="clientForm.get('password').hasError('required') && 
-  clientForm.get('correo').touched">
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('password').hasError('required') && 
+		usuarioForm.get('password').touched">
 			Contraseña requerida
 		</div>
-		<div class="alert alert-danger alert-dismissible fade show" *ngIf="password.errors.minlength">
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('password').hasError('minlength') && 
+		usuarioForm.get('password').touched">
 			La contraseña debe tener al menos 8 caracteres.
 		</div>
-		<button class="button mx-sm-3 mb-2" type="submit" [disabled]="clientForm.invalid">Crear</button>
+		<button class="button mx-sm-3 mb-2" type="submit" [disabled]="usuarioForm.invalid">Crear</button>
 	</form>
 </div>

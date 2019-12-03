@@ -1,11 +1,19 @@
 @media screen and (min-width: 601px) {
     .texto {
-      font-size: 25px;
+      font-size: 30px;
     }
   }
   
   @media screen and (max-width: 600px) {
     .texto {
-      font-size: 14px;
+      font-size: 15px;
     }
+  }
+  #boton {
+    size: 100%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 22px;
+    border: 1px solid grey;    
   }

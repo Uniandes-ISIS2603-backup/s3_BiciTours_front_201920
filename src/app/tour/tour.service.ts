@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Tour } from './tour';
@@ -34,7 +33,7 @@ export class TourService {
     * Retorna el objeto observable que contiene el tour cuyo id es dado
     * @returns el tour
     */
-    getTourDetail(tourId): Observable<TourDetail> {
+    getTourDetail(tourId:number): Observable<TourDetail> {
         return this.http.get<TourDetail>(API_URL +tours + "/"+tourId);
     }
     

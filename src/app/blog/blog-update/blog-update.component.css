@@ -1,0 +1,11 @@
+@media screen and (min-width: 601px) {
+    .botones {
+      font-size: 25px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .botones {
+      font-size: 15px;
+    }
+  }

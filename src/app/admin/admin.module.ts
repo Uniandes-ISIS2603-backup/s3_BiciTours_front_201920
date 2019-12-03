@@ -7,12 +7,11 @@ import {AdminRoutingModule} from './admin-routing.module';
 import {RouterModule } from '@angular/router';
 import { CreateInsuranceComponent } from './list-insurances/components/create-insurance/create-insurance.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BlogCreateComponent } from './blog-create-admin/blog-create-admin.component';
 import { EditInsuranceComponent } from './list-insurances/components/edit-insurance/edit-insurance.component';
 
 @NgModule({
   declarations: [ListInsurancesComponent, BlogListAdminComponent, NavComponent,
-    CreateInsuranceComponent, BlogCreateComponent,EditInsuranceComponent],
+    CreateInsuranceComponent, EditInsuranceComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

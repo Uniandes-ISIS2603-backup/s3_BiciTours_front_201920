@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <div class="row">
   <div class="col-md-7" >
     <form [formGroup]="tourForm" (ngSubmit)="ponerDuracion()">
       <br><br>
@@ -29,15 +30,23 @@
       <label for="validationDefault01"><Strong>Precio</Strong></label><br>
       <input type="number" formControlName="costo" name="quantity" min="0">COP
       <br><br>
+
+      <form [formGroup]="duracionForm">
+          <label for="validationDefault01"><Strong>Duración</Strong></label><br>
+          <input type="number" min="0" placeholder="dias" formControlName="dias">
+          <input type="number" min="0" placeholder="horas" formControlName="horas">
+          <input type="number" min="0"  placeholder="minutos" formControlName="minutos">
+      </form>
+      <br><br>
+      
       <button style="background-color: #C72C41;"   type="submit">Siguiente -> </button>
 
     </form>
-      <form [formGroup]="duracionForm">
-        <label for="validationDefault01"><Strong>Duración</Strong></label><br>
-        <input type="number" min="0" placeholder="dias" formControlName="dias">
-        <input type="number" min="0" placeholder="horas" formControlName="horas">
-        <input type="number" min="0"  placeholder="minutos" formControlName="minutos">
-      </form>
+      
       <br><br><!--[routerLink] ="['../create/fotos']"-->
   </div>
+  <div class="col-md-5">
+    <app-foto-create></app-foto-create>
+  </div>
+</div>
 </div>
