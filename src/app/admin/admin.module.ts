@@ -5,12 +5,14 @@ import { BlogListAdminComponent } from './blog-list-admin/blog-list-admin.compon
 import { NavComponent } from './nav/nav.component';
 import {AdminRoutingModule} from './admin-routing.module';
 import {RouterModule } from '@angular/router';
-import { CreateInsuranceComponent } from './create-insurance/create-insurance.component';
+import { CreateInsuranceComponent } from './list-insurances/components/create-insurance/create-insurance.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogCreateComponent } from './blog-create-admin/blog-create-admin.component';
+import { EditInsuranceComponent } from './list-insurances/components/edit-insurance/edit-insurance.component';
 
 @NgModule({
-  declarations: [ListInsurancesComponent, BlogListAdminComponent, NavComponent, CreateInsuranceComponent, BlogCreateComponent],
+  declarations: [ListInsurancesComponent, BlogListAdminComponent, NavComponent,
+    CreateInsuranceComponent, BlogCreateComponent,EditInsuranceComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

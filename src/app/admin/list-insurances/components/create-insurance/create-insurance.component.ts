@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import { SeguroService } from './../../core/services/seguro.service';
+import { SeguroService } from '../../../../core/services/seguro.service';
 
 
 

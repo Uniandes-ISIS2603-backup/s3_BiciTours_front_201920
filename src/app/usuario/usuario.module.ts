@@ -7,6 +7,7 @@ import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.componen
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioService } from './usuario.service';
 import { UsuarioRoutingModule } from './usuario-routing.module';
+import { ShareModule } from '../share/share.module';
 
 
 

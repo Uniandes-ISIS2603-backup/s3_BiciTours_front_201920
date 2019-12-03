@@ -14,8 +14,10 @@ export class SeguroService {
     return this.http.get<Seguro[]>(API_URL + seguros);
   }
 
+  getSeguro(id: number) {
+    return this.http.get<Seguro[]>(API_URL + seguros + '/' + id);
+  }
 
-  
   postSeguro(seguro: Seguro) {
     return  this.http.post(API_URL + seguros, seguro);
   }
