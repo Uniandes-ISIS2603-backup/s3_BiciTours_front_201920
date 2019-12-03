@@ -28,12 +28,19 @@ export class TourListComponent implements OnInit {
    * Asks the service to update the list of tours
    */
   getTours(): void {
-    this.tourService.getTours().subscribe(tours => this.tours = tours);
+    this.tourService.getTours().subscribe(tours => {
+      this.tours = tours;
+      console.log(this.tours);
+
+    }
+      );
   }
   getRecomendaciones() {
 
     this.recomendacionService.getRecomendacion()
-     .subscribe(rec => this.recomendaciones = rec);
+     .subscribe(rec => {
+       this.recomendaciones = rec;
+      });
     //return new Promise((resolve, reject) => {
     //  this.seguroService.getSeguros().subscribe(listSeguros => resolve(listSeguros));
   }
