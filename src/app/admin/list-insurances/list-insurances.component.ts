@@ -33,6 +33,12 @@ export class ListInsurancesComponent implements OnInit {
       caracteristicas: ['']
     });
   }
+  deleteSeguro(id: number)
+  {
+    console.log(id);
+    this.seguroService.deleteSeguro(id)
+    .subscribe(res => this.getSeguros());
+  }
   /*
   postSeguro(event: Event) {
 

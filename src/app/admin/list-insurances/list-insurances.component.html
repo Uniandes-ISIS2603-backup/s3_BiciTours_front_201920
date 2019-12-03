@@ -14,10 +14,9 @@
                 </div>
                 <div class="card-footer">
                     <button type="button" class="btn btn-info mr-1 btn-card" routerLink="edit-insurance/{{temp.id}}">Editar</button>
-                    <button type="button" class="btn btn-danger btn-card">Eliminar</button>
+                    <button type="button" class="btn btn-danger btn-card" (click)="deleteSeguro(temp.id)">Eliminar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

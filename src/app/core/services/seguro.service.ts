@@ -25,4 +25,7 @@ export class SeguroService {
     return  this.http.put(API_URL + seguros + '/' + seguro.id, seguro);
   }
 
+  deleteSeguro(id: number){
+    return this.http.delete(API_URL + seguros + '/' + id);
+  }
 }

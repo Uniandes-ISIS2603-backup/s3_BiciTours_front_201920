@@ -52,7 +52,7 @@ export class EditInsuranceComponent implements OnInit {
       .subscribe(nuevo => {
          this.router.navigate(['./admin/insurances']);
       });
-
   }
+
 
 }
