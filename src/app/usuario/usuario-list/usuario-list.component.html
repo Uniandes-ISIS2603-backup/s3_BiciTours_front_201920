@@ -14,12 +14,12 @@
     <br>
   <div class="row" id="listas" >
     <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let i of usuarios">
-			<div class="card ml-0 mt-2" style=" text-align: center;" id="info">
+			<div class="card ml-0 mt-2" style=" text-align: center; border: 10px solid white; background: #01203a;" id="info">
 				<div class="card-body">
-					<table style="width: 100%;">
-            <tbody style="width: 100%;">
+					<table style="width: 100%; ">
+            <tbody style="width: 100%; ">
               <th>
-                <a style="color: black; word-break: break-word; font-size: 20px;" routerLink="/usuarios/{{i.id}}/perfil" routerLinkActive=active routerLinkActive="active-link" id="titulo">{{i.nombre}}</a>
+                <a style="color: white; word-break: break-word; font-size: 25px; font-weight: bold; " routerLink="/usuarios/{{i.id}}/perfil" routerLinkActive=active routerLinkActive="active-link" id="titulo">{{i.nombre}}</a>
               </th>
 						</tbody>
 					</table>	
