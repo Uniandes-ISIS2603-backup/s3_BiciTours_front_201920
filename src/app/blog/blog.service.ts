@@ -17,7 +17,11 @@ export class BlogService {
 
   getBlogs() : Observable<BlogDetail[]> {
         return this.http.get<BlogDetail[]>(API_URL + blogs);
-    }
+  }
+
+  getBlogsUsuario(id: number) : Observable<BlogDetail[]> {
+    return this.http.get<BlogDetail[]>(API_URL +"/usuarios/"+id+ blogs);
+}
 
   getBlogDetail(blogId:number): Observable<BlogDetail> {
     return this.http.get<BlogDetail>(API_URL + blogs+"/"+blogId);

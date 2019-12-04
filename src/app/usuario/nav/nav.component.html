@@ -1,0 +1,26 @@
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Administrador </div>
+        <div class="list-group list-group-flush">
+            <a routerLink="./perfil" class="list-group-item list-group-item-action bg-light">Datos Personales</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Tours</a>
+            <a routerLink="./insurances" class="list-group-item list-group-item-action bg-light">Seguros</a>
+            <a routerLink="./blogs" class="list-group-item list-group-item-action bg-light">Blog</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper
+    
+<router-outlet></router-outlet>
+ -->

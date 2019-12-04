@@ -5,6 +5,9 @@ import { UsuarioListComponent} from './usuario-list/usuario-list.component';
 import { UsuarioDetailComponent} from './usuario-detail/usuario-detail.component';
 import { UsuarioCreateComponent} from './usuario-create/usuario-create.component';
 import { UsuarioLoginComponent} from './usuario-login/usuario-login.component';
+import { BlogListUsuarioComponent } from './blog-list-usuario/blog-list-usuario.component'
+import { ListInsurancesComponent } from './list-insurances/list-insurances.component';
+import { NavComponent } from './nav/nav.component';
 
 const routes: Routes = [
   {
@@ -21,7 +24,23 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: UsuarioDetailComponent
+    component: NavComponent,
+    children: [
+      {
+        path: 'insurances',
+        component: ListInsurancesComponent,
+
+      },
+      {
+        path: 'perfil',
+        component: UsuarioDetailComponent,
+
+      },      
+      {
+        path: 'blogs',
+        component: BlogListUsuarioComponent
+      },
+    ],
   }
 ];
 

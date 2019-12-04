@@ -8,15 +8,18 @@ import { UsuarioCreateComponent } from './usuario-create/usuario-create.componen
 import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
 import { UsuarioService } from './usuario.service';
 import { UsuarioRoutingModule } from './usuario-routing.module';
-import { ShareModule } from '../share/share.module';
-
+import { RouterModule } from '@angular/router';
+import { BlogListUsuarioComponent } from './blog-list-usuario/blog-list-usuario.component'
+import { ListInsurancesComponent } from './list-insurances/list-insurances.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   imports: [
-    CommonModule, UsuarioRoutingModule, ReactiveFormsModule, FormsModule
+    CommonModule, UsuarioRoutingModule, ReactiveFormsModule, FormsModule, RouterModule
   ],
-  declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioLoginComponent], 
+  declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioLoginComponent,
+    ListInsurancesComponent, BlogListUsuarioComponent, NavComponent, ], 
   exports: [UsuarioListComponent, UsuarioCreateComponent, UsuarioLoginComponent],
   providers: [UsuarioService]
 })
