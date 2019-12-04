@@ -10,6 +10,8 @@ const routes: Routes = [
   {
     path: 'create',
     component: BlogCreateComponent
+    //canActivate: [NgxPermissionsGuard],
+    //data: {permissions: {only: ['ADMIN','USER']}}
   },
   {
     path: '',

@@ -23,6 +23,8 @@ const routes: Routes = [
   {
     path: 'create/fotos',
     component:FotoCreateComponent
+    //canActivate: [NgxPermissionsGuard],
+    //data: {permissions: {only: ['ADMIN','USER']}}
   },
   {
     path: 'recomendacion',

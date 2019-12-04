@@ -1,13 +1,42 @@
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo registrado</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">Ingresa el correo que registraste.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-  <button type="submit" class="btn btn-primary" routerLink="../registrarse">Registraste</button>
-</form>
+<br>
+<div class="container-fluid" style="width: 70%; text-align: center; background-color: #C72C41; color: black; font-weight: bold; font-family: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif; ">
+	<br>
+	<a style="font-size: 40px; font-weight: 2; font-family: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
+    color: white;">Login</a>
+	<br>
+	<br>
+	<form [formGroup]="usuarioForm" (ngSubmit)="intentarLogin (usuarioForm.value)">
+		<div class="form-group  mx-sm-3 mb-2">
+			<label for="correo"> Correo </label>
+			<input id="correo" type="text" class="form-control" formControlName="correo" placeholder="Correo registrado">
+		</div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('correo').hasError('required') && 
+		usuarioForm.get('correo').touched">
+			Correo requerido
+		</div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('correo').hasError('email') && 
+		usuarioForm.get('correo').touched">
+			El formato de correo es incorrecto.
+		</div>
+
+		<div class="form-group  mx-sm-3 mb-2">
+			<label for="password"> Contraseña registrada </label>
+			<input id="password" type="text" class="form-control" formControlName="password"
+				placeholder="Tu password (de mínimo 8 caracteres)">
+		</div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('password').hasError('required') && 
+		usuarioForm.get('password').touched">
+			Contraseña requerida
+		</div>
+		<div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('password').hasError('minlength') && 
+		usuarioForm.get('password').touched">
+			La contraseña debe tener al menos 8 caracteres.
+		</div>
+		<br>
+		<button class="btn btn-primary" type="submit" style="font-size: 25px; width: 40%; color:white;" [disabled]="usuarioForm.invalid">Crear usuario</button>
+    <br>
+    <button type="submit" class="btn btn-primary" routerLink="../registrarse">Registraste</button>
+	</form>
+	<br>
+</div>
+<br>

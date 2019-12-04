@@ -37,7 +37,6 @@ export class UsuarioCreateComponent implements OnInit{
       this.showSuccess();
       window.history.back();
     });
-    
     this.usuarioForm.reset();
   }
    /** Loggear al usuario con el role seleccionado  */

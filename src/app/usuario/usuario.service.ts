@@ -12,16 +12,15 @@ const usuarios = "/usuario";
 
 @Injectable()
 export class UsuarioService {
-
   /** Constructor del servicio Usuario
      * @param router Router de angular para redireccionar al usuario en login o logout
      * @param roleService NgxRolesService para manejar autenticaciones de rol (según ejemplo de front-pregrado201920)
      * @param permissionsService NgxPermissionsService para manejar autenticaciones de rol
      */
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router,private roleService: NgxRolesService, private permissionsService:NgxPermissionsService ,private http: HttpClient) { }
   
      //Funciones para creación y cambio de autenticación (según front-pregrado201920)
-  /** Start: reinicia los estados de autenticación*
+  /** Start: reinicia los estados de autenticación*/
   start (): void {
     this.permissionsService.flushPermissions();
     this.roleService.flushRoles();
@@ -35,30 +34,30 @@ export class UsuarioService {
         this.setUserRole();
     }
 }
-/** No registrado: actualiza el usuario a UNLOGGED *
+/** No registrado: actualiza el usuario a UNLOGGED */
 setUnloggedRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('UNLOGGED', ['']);
 }
-/** Registrado: actualiza el usuario a USER *
+/** Registrado: actualiza el usuario a USER */
 setUserRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('USER', ['leave_review']);
     localStorage.setItem('role', 'USER');
 }
-/** Administrador: actualiza el usuario a ADMIN *
+/** Administrador: actualiza el usuario a ADMIN */
 setAdministratorRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
     localStorage.setItem('role', 'ADMIN');
 }
-/** Imprimir rol: imprime en consola el rol del usuario actual *
+/** Imprimir rol: imprime en consola el rol del usuario actual */
 printRole (): void {
     console.log(this.roleService.getRoles());
 }
 
 /** Loggea el usuario en el rol deseado
- * @param role El rol deseado a registrar *
+ * @param role El rol deseado a registrar */
 login (role): void {
     if (role === 'ADMIN') {
         this.setAdministratorRole();
@@ -68,7 +67,7 @@ login (role): void {
     this.router.navigateByUrl('/home');
 }
 
-/** Desconectar: desconecta al usuario cambiando su rol a UNLOGGED *
+/** Desconectar: desconecta al usuario cambiando su rol a UNLOGGED */
 logout (): void {
     this.roleService.flushRoles();
     this.setUnloggedRole();
@@ -85,6 +84,10 @@ logout (): void {
   /** GET usuario por id. Will 404 if id not found */
   getUsuario(id: number): Observable<UsuarioDetail> {
     return this.http.get<UsuarioDetail>(backUrl+usuarios+"/"+id);
+  }
+  /** GET usuario por correo y contraseña. Will 404 if id not found */
+  getUsuarioByCorreoClave(correo: String, clave: String): Observable<UsuarioDetail> {
+    return this.http.get<UsuarioDetail>(backUrl+usuarios+"/");
   }
   /** POST: añade un nuevo usuario al servidor */
   createUsuario(usuarioNuevo: Usuario): Observable<Usuario> {

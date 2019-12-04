@@ -20,12 +20,14 @@ const rutas: Routes = [
       {
         path: 'insurances/create-insurances',
         component: CreateInsuranceComponent,
-
+        //canActivate: [NgxPermissionsGuard],
+        //data: {permissions: {only: ['ADMIN']}}
       },
       {
         path: 'insurances/edit-insurance/:id',
         component: EditInsuranceComponent,
-
+        //canActivate: [NgxPermissionsGuard],
+        //data: {permissions: {only: ['ADMIN']}}
       },
       {
         path: 'blogs',
