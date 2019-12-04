@@ -1,19 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col" style = "border:2px solid black;background: white">
-			<table class="table table-striped">
-				<thead class="thead-dark">
-					<tr>
-						<th>Comentario Grade</th>    
-            			<th>Comentario Text</th>  
-					</tr>
-				</thead>
+			<table>
 				<tbody>
 					<tr *ngFor="let c of comentarios">
-						<td style="cursor: pointer;">
-							<a class="figure-caption" (click)="onSelected(c.id)">{{c.calificacion}}</a>
-						</td>
-            			<td>{{c.texto}}</td>
+
 					</tr>
 				</tbody>
 			</table>

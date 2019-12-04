@@ -23,7 +23,7 @@ export class UsuarioLoginComponent implements OnInit {
     this.usuarioService.getUsuarioByCorreoClave(correo,password);
   };
 
-  /** Logs the user in with the selected role */
+  /** Logs the user in with the selected role *
   login(): void {
     let role : String ="UNLOGGED"; 
     if(this.usuario.esAdmin)
@@ -33,7 +33,7 @@ export class UsuarioLoginComponent implements OnInit {
     this.usuarioService.login(role);
     this.toastrService.success('Logged in')
   }
-
+*/
   ngOnInit() {
     this.usuario = new Usuario();
     this.roles = ['Administrator', 'Client'];
