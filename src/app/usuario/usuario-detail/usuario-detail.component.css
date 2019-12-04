@@ -9,12 +9,15 @@ th {
 }
 tr {
     font-size: 20px;
-    border: 5px solid black;
+    border: 5px solid white;
     width: 100%;
     text-align: left;
     size: 100%;    
     color: black;
-    background: white;
+    background: #C72C41;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-weight: bold;
+    color: white;
 }
 p {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;

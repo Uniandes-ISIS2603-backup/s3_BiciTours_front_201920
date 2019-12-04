@@ -5,7 +5,7 @@
     color: white;">Login</a>
 	<br>
 	<br>
-	<form [formGroup]="usuarioForm" (ngSubmit)="intentarLogin (usuarioForm.value)">
+	<form [formGroup]="usuarioForm" (ngSubmit)="intentarLogin(usuarioForm.value)">
 		<div class="form-group  mx-sm-3 mb-2">
 			<label for="correo"> Correo </label>
 			<input id="correo" type="text" class="form-control" formControlName="correo" placeholder="Correo registrado">

@@ -1,28 +1,28 @@
 <br>
-<div class="container-fluid" style=" background: #C72C41; width: 90%; border: 10px solid black; text-align: center; color: white;">
-  <div class='container-fluid'>
-      <br><p class ='h3 p-3' style="font-size: 40px;">{{usuarioDetail.nombre}} </p>
-  </div>
-  <div class='container-fluid'>
+<div class="container-fluid" style=" background: #C72C41; width: 90%; border: 10px solid white; text-align: center; color: white;">
+  <br>
+  <div class='container-fluid' style="border: 10px solid white; background: #01203a;">
+    <br><p class ='h3 p-3' style="font-size: 40px;">{{usuarioDetail.nombre}} </p>
       <div class='container-fluid' id="InformacionPersonal">
           <table style="width: 100%;">
-            <th style="width: 50%;">
-                <p class ='h3 p-3' style="text-align: center;">Informacion personal:</p>
+            <th style="width: 48%;">
+                <p class ='h3 p-3' style="text-align: center;">Información personal:</p>
+                  <tr>
+                    <th>Tipo de usuario:</th>
+                    <th id="id"></th>
+                  </tr>
                   <tr>
                     <th>Correo:</th>
                     <th>{{usuarioDetail.correo}}</th>
-                  </tr>
-                  <tr>
-                    <th>Rol:</th>
-                    <th id="id"></th>
                   </tr>
                   <tr>
                     <th>ID:</th>
                     <th>{{usuarioDetail.id}}</th>
                   </tr>
             </th>
-            <th style="width: 50%;">
-                <p class ='h3 p-3' style="text-align: center;">Participacion en BiciGo</p>
+            <th style="width: 4%;"></th>
+            <th style="width: 48%;">
+                <p class ='h3 p-3' style="text-align: center;">Participación en BiciGo</p>
                 <tr>
                   <th>Numero de comentarios: </th>
                   <th>{{usuarioDetail.comentarios.length}}</th>
@@ -37,9 +37,12 @@
                 </tr>
             </th>
           </table>
+          
           </div>
+          
           <div class='container-fluid' id="InformacionPrivada">
-              <p class ='h3 p-3'>Informacion administrativa</p>
+              <br>
+              <p class ='h3 p-3'>Información administrativa</p>
               <table style="width: 100%;">
                   <tr>
                       <th>Numero de seguros: </th>
