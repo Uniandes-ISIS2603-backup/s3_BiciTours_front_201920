@@ -13,7 +13,7 @@ export class BlogListComponent implements OnInit {
 
   blog_id : number;
   selectedBlog: BlogDetail;
-  blogs: Blog[];
+  blogs: BlogDetail[];
   
 
    onSelected(blog_id: number): void {
@@ -26,7 +26,9 @@ export class BlogListComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.getBlogs();
+    
   }
   buscar(): void{
     

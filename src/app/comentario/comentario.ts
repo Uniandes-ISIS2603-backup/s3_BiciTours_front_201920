@@ -39,7 +39,7 @@ export class Comentario {
   * The comentario's blog
   */
 
-  blog: string; 
+  blog_id: number;
 
 
   /**

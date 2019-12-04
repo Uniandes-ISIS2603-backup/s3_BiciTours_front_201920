@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import {BlogService} from '../blog.service';
-import {Blog} from '../blog';
+import { BlogService } from '../blog.service';
+import { Blog } from '../blog';
 
 @Component({
   selector: 'app-blog-create',

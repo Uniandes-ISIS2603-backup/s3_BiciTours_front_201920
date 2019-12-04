@@ -16,8 +16,8 @@ export class ComentarioService {
     */
     constructor(private http: HttpClient) { }    
   
-    getComentarios() : Observable<Comentario[]> {
-        return this.http.get<Comentario[]>(API_URL + comentarios);
+    getComentarios(id: number) : Observable<Comentario[]> {
+        return this.http.get<Comentario[]>(API_URL +"/blogs/"+id+ comentarios);
     }
 
      /**
@@ -28,8 +28,9 @@ export class ComentarioService {
         return this.http.get<ComentarioDetail>(API_URL + comentarios + "/" +  comentarioId);
     }
     
-    createComentario(comentario: Comentario) {
-        console.log(comentario);
-        return  this.http.post(API_URL + comentarios, comentario);
-      }
+    createComentario(idBlog: number,  comentario: Comentario)
+    {
+        console.log(comentario)
+        return this.http.post(API_URL + "/blogs/"+ idBlog +comentarios, comentario);
+    }
 }

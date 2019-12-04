@@ -1,12 +1,11 @@
 import {Comentario} from "./comentario";
 
-export class ComentarioDetail implements Comentario{
+export class ComentarioDetail extends Comentario{
 
  id: number;
  calificacion: number; 
  texto: string;
  usuario: string; 
- blog: string;
  tour: string; 
  respuestas: Comentario[];
 }
