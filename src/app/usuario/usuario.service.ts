@@ -85,22 +85,18 @@ logout (): void {
   getUsuario(id: number): Observable<UsuarioDetail> {
     return this.http.get<UsuarioDetail>(backUrl+usuarios+"/"+id);
   }
-  /** GET usuario por correo y contraseña. Will 404 if id not found */
-  getUsuarioByCorreoClave(correo: String, clave: String): Observable<UsuarioDetail> {
-    return this.http.get<UsuarioDetail>(backUrl+usuarios+"/");
-  }
   /** POST: añade un nuevo usuario al servidor */
-  createUsuario(usuarioNuevo: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(backUrl+usuarios, usuarioNuevo);
+  createUsuario(usuarioNuevo: Usuario): Observable<UsuarioDetail> {
+    return this.http.post<UsuarioDetail>(backUrl+usuarios, usuarioNuevo);
   }
 
   /** DELETE: borrar usuario del servidor */
-  deleteUsuario(usuarioEliminado: Usuario): Observable<Usuario> {
-    return this.http.delete<Usuario>(backUrl+usuarios+"/"+usuarioEliminado.id);
+  deleteUsuario(usuarioEliminado: Usuario) {
+    return this.http.delete<UsuarioDetail>(backUrl+usuarios+"/"+usuarioEliminado.id);
   }
 
   /** PUT: actualiza el usuario del servidor */
-  updateUsuario(usuarioActualizado: Usuario): Observable<any> {
+  updateUsuario(usuarioActualizado: UsuarioDetail) {
     return this.http.put(backUrl+usuarios+"/"+usuarioActualizado.id, usuarioActualizado);
   }
 }
