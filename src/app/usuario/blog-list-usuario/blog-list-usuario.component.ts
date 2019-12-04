@@ -28,7 +28,6 @@ export class BlogListUsuarioComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(window.location.pathname.split('/')[2])
     this.usuario_id = parseInt(window.location.pathname.split('/')[2]);
     this.getBlogs();
   }
@@ -43,7 +42,6 @@ export class BlogListUsuarioComponent implements OnInit {
 
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("th")[1];
-    console.log(td)
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

@@ -38,7 +38,6 @@ export class BlogListAdminComponent implements OnInit {
 
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("th")[1];
-    console.log(td)
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

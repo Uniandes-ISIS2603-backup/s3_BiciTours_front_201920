@@ -18,8 +18,8 @@ export class BlogCreateComponent{
         this.blogs=[];
         this.blogService = blogService; 
         this.blogForm = this.formBuilder.group({
-        titulo: ["", [Validators.required,Validators.minLength(8)]],
-        texto: [""],
+        titulo: ["", [Validators.required,Validators.minLength(5), Validators.maxLength(50)]],
+        texto: ["", [Validators.required,Validators.minLength(8), Validators.maxLength(255)]],
         rutaImagen: [""],
         rutaVideo: [""],
     });

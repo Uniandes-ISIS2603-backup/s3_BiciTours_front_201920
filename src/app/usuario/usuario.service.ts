@@ -5,6 +5,7 @@ import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions';
 import {Router} from '@angular/router';
 
 import { Usuario} from "./usuario"
+import { UsuarioDetail } from './usuario-detail';
 
 const backUrl = "http://localhost:8080/s3_bicitours-api/api"; // URL to web api
 const usuarios = "/usuario";
@@ -17,11 +18,10 @@ export class UsuarioService {
      * @param roleService NgxRolesService para manejar autenticaciones de rol (según ejemplo de front-pregrado201920)
      * @param permissionsService NgxPermissionsService para manejar autenticaciones de rol
      */
-  constructor(private router: Router, private roleService: NgxRolesService,
-     private permissionsService: NgxPermissionsService, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
   
      //Funciones para creación y cambio de autenticación (según front-pregrado201920)
-  /** Start: reinicia los estados de autenticación*/
+  /** Start: reinicia los estados de autenticación*
   start (): void {
     this.permissionsService.flushPermissions();
     this.roleService.flushRoles();
@@ -35,30 +35,30 @@ export class UsuarioService {
         this.setUserRole();
     }
 }
-/** No registrado: actualiza el usuario a UNLOGGED */
+/** No registrado: actualiza el usuario a UNLOGGED *
 setUnloggedRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('UNLOGGED', ['']);
 }
-/** Registrado: actualiza el usuario a USER */
+/** Registrado: actualiza el usuario a USER *
 setUserRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('USER', ['leave_review']);
     localStorage.setItem('role', 'USER');
 }
-/** Administrador: actualiza el usuario a ADMIN */
+/** Administrador: actualiza el usuario a ADMIN *
 setAdministratorRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
     localStorage.setItem('role', 'ADMIN');
 }
-/** Imprimir rol: imprime en consola el rol del usuario actual */
+/** Imprimir rol: imprime en consola el rol del usuario actual *
 printRole (): void {
     console.log(this.roleService.getRoles());
 }
 
 /** Loggea el usuario en el rol deseado
- * @param role El rol deseado a registrar */
+ * @param role El rol deseado a registrar *
 login (role): void {
     if (role === 'ADMIN') {
         this.setAdministratorRole();
@@ -68,7 +68,7 @@ login (role): void {
     this.router.navigateByUrl('/home');
 }
 
-/** Desconectar: desconecta al usuario cambiando su rol a UNLOGGED */
+/** Desconectar: desconecta al usuario cambiando su rol a UNLOGGED *
 logout (): void {
     this.roleService.flushRoles();
     this.setUnloggedRole();
@@ -78,13 +78,13 @@ logout (): void {
 
   // Funciones para comunicación con Back mediante Html
   /** GET usuarios del server */
-  getUsuarios(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(backUrl+usuarios);
+  getUsuarios(): Observable<UsuarioDetail[]> {
+    return this.http.get<UsuarioDetail[]>(backUrl+usuarios);
   }
 
   /** GET usuario por id. Will 404 if id not found */
-  getUsuario(id: number): Observable<Usuario> {
-    return this.http.get<Usuario>(backUrl+usuarios+"/"+id);
+  getUsuario(id: number): Observable<UsuarioDetail> {
+    return this.http.get<UsuarioDetail>(backUrl+usuarios+"/"+id);
   }
   /** POST: añade un nuevo usuario al servidor */
   createUsuario(usuarioNuevo: Usuario): Observable<Usuario> {

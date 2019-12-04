@@ -1,7 +1,61 @@
-<div class='col-md-12'>
+<br>
+<div class="container-fluid" style=" background: #C72C41; width: 90%; border: 10px solid black; text-align: center; color: white;">
   <div class='container-fluid'>
-    <p class ='h3 p-3'>
-      Usuario: {{usuarioDetail.nombre}}, {{usuarioDetail.correo}}
-    </p>
+      <br><p class ='h3 p-3' style="font-size: 40px;">{{usuarioDetail.nombre}} </p>
   </div>
+  <div class='container-fluid'>
+      <div class='container-fluid' id="InformacionPersonal">
+          <table style="width: 100%;">
+            <th style="width: 50%;">
+                <p class ='h3 p-3' style="text-align: center;">Informacion personal:</p>
+                  <tr>
+                    <th>Correo:</th>
+                    <th>{{usuarioDetail.correo}}</th>
+                  </tr>
+                  <tr>
+                    <th>Rol:</th>
+                    <th id="id"></th>
+                  </tr>
+                  <tr>
+                    <th>ID:</th>
+                    <th>{{usuarioDetail.id}}</th>
+                  </tr>
+            </th>
+            <th style="width: 50%;">
+                <p class ='h3 p-3' style="text-align: center;">Participacion en BiciGo</p>
+                <tr>
+                  <th>Numero de comentarios: </th>
+                  <th>{{usuarioDetail.comentarios.length}}</th>
+                </tr>
+                <tr>
+                  <th>Numero de Blogs:</th>
+                  <th>{{usuarioDetail.misBlogs.length}}</th>
+                </tr>
+                <tr>
+                  <th>Participacion en tours: </th>
+                  <th>{{usuarioDetail.visitados.length}}</th>
+                </tr>
+            </th>
+          </table>
+          </div>
+          <div class='container-fluid' id="InformacionPrivada">
+              <p class ='h3 p-3'>Informacion administrativa</p>
+              <table style="width: 100%;">
+                  <tr>
+                      <th>Numero de seguros: </th>
+                      <th>{{usuarioDetail.seguros.length}}</th>
+                    </tr>
+                    <tr>
+                      <th>Estado de deuda: </th>
+                      <th id="pago">{{usuarioDetail.pago}}</th>
+                    </tr>
+                    <tr id="cantidad">
+                      <th>Deuda a pagar: </th>
+                      <th>${{usuarioDetail.deuda}}</th>
+                    </tr>
+                  </table>              
+            </div>
+            <br>
+  </div>
+  <br>
 </div>

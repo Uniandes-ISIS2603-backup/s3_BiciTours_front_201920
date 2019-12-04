@@ -6,4 +6,10 @@ export class Usuario {
   correo: string;
 
   password: string;
+
+  deuda: number;
+
+  esAdmin: boolean;
+
+  pago: boolean;
 }
