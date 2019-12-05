@@ -23,7 +23,7 @@ export class ComentarioCreateComponent implements OnInit {
     
     formC = new FormGroup({
       calificacion: new FormControl(0),
-      texto: new FormControl('Comparte por qué escogiste esta calificación.'),
+      texto: new FormControl(''),
     });
 
     /**
