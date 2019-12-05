@@ -1,11 +1,13 @@
 <div class="container-fluid">
     <br>
-    <a style="font-size: 25px;">Añade un comentario</a>
-    <br>
+    <p style="font-size: 25px; width: 90%;font-weight: bold;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;font-size: 30px; text-align: center;">Añade un comentario</p>
     <form [formGroup]="formC" (ngSubmit)="onSubmit()">
         
-        <a>Elige una calificación (0-5)</a>
+        <a style = "font-size: 20px; width: 90%; text-align: center;">Elige una calificación (0-5):    </a>
         <input  type="number" min="0" max="5" step="1" value="0" formControlName="calificacion">
+        <br>
+        <br>
+        <a style = "font-size: 20px; width: 90%; text-align: center;">Incluye un comentario (Máximo 250 caracteres):</a>
         <br>
         <br>
         <textarea style="resize:none" rows="5" cols="49" formControlName ="texto" placeholder="Comparte por qué escogiste esta calificación."></textarea>
