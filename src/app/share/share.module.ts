@@ -4,7 +4,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RouterModule} from '@angular/router';
 import { LoginComponent } from '../login/login.component';
-
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -16,11 +16,13 @@ import { LoginComponent } from '../login/login.component';
   imports: [
     CommonModule,
     RouterModule,
+    NgxPermissionsModule
   ],
   exports:
   [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NgxPermissionsModule
   ]
 })
 export class ShareModule { }

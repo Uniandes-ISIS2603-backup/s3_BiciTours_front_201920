@@ -24,9 +24,7 @@ export class UsuarioLoginComponent implements OnInit {
   intentarLogin(): void {
     var usuario: UsuarioDetail =new UsuarioDetail();
     usuario.correo=(<HTMLInputElement>document.getElementById("email")).value;
-    console.log(usuario.correo)
     usuario.password=(<HTMLInputElement>document.getElementById("password")).value;
-    console.log(usuario.password)
     this.usuarioService.createUsuario(usuario).subscribe(o =>{
       this.usuario= o;
       this.login();
@@ -41,6 +39,9 @@ export class UsuarioLoginComponent implements OnInit {
     { role="ADMIN"; }
     else
     { role="USER";  }
+    localStorage.setItem('id',this.usuario.id+"");
+    localStorage.setItem('nombre',this.usuario.nombre+"");
+    
     this.usuarioService.login(role);
     this.toastrService.success('Logged in')
   }

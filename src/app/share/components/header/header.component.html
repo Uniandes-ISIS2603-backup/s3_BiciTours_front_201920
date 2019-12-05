@@ -1,11 +1,14 @@
 <ul class="nav justify-content-end">
 
-  <li class="nav-item">
+  <li class="nav-item" *ngxPermissionsOnly="['UNLOGGED']">
     <a class="nav-link text-color" routerLink="/usuarios/login" routerLinkActive=active>Login</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
       <a class="nav-link text-color" routerLink="/admin" routerLinkActive=active>Admin</a>
-    </li>
+  </li>
+  <li class="nav-item" *ngxPermissionsOnly="['USER','ADMIN']">
+      <a class="nav-link text-color" routerLink="/ " routerLinkActive=active>Perfil</a>
+  </li>
 </ul>
 
 <ul class="nav nav-tabs justify-content-center">

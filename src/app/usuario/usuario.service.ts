@@ -13,10 +13,6 @@ const usuarios = "/usuario";
 @Injectable()
 export class UsuarioService {
 
-
-
-
-
   /** Constructor del servicio Usuario
      * @param router Router de angular para redireccionar al usuario en login o logout
      * @param roleService NgxRolesService para manejar autenticaciones de rol (según ejemplo de front-pregrado201920)
@@ -30,32 +26,30 @@ export class UsuarioService {
     this.permissionsService.flushPermissions();
     this.roleService.flushRoles();
     this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
-    const role = localStorage.getItem('role');
-    if (!role) {
-        this.setUnloggedRole();
-    } else if (role === 'ADMIN') {
-        this.setAdministratorRole();
-    } else {
-        this.setUserRole();
-    }
+    this.setUnloggedRole();
 }
 
 /** No registrado: actualiza el usuario a UNLOGGED */
 setUnloggedRole (): void { 
     this.roleService.flushRoles();
     this.roleService.addRole('UNLOGGED', ['']);
+    localStorage.setItem('role', 'UNLOGGED');
+    this.permissionsService.addPermission('UNLOGGED');
+    console.log(this.permissionsService.getPermissions())
 }
 /** Registrado: actualiza el usuario a USER */
 setUserRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('USER', ['leave_review']);
     localStorage.setItem('role', 'USER');
+    this.permissionsService.addPermission('USER')
 }
 /** Administrador: actualiza el usuario a ADMIN */
 setAdministratorRole (): void {
     this.roleService.flushRoles();
     this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
     localStorage.setItem('role', 'ADMIN');
+    this.permissionsService.addPermission('ADMIN')
 }
 /** Imprimir rol: imprime en consola el rol del usuario actual */
 printRole (): void {
@@ -72,9 +66,8 @@ login (role): void {
     } else {
         this.setUserRole()
     }
-    this.printRole();
     this.router.navigateByUrl('/home');
-    this.permissionsService.addPermission(role)
+    
 }
 
 /** Desconectar: desconecta al usuario cambiando su rol a UNLOGGED */
