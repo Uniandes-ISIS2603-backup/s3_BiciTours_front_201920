@@ -27,6 +27,10 @@ export class BlogCreateComponent{
     createBlog(nuevoBlog: Blog){
         nuevoBlog.calificacionPromedio=10.0;
         nuevoBlog.id=null;
+        if(!this.matchYoutubeUrl(nuevoBlog.rutaVideo))
+        {
+            nuevoBlog.rutaVideo="";
+        }
         this.blogService.createBlog(nuevoBlog).subscribe((blog:Blog) =>{
             this.blogs.push(blog);
             this.showSuccess();
