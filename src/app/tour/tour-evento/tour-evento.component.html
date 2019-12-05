@@ -1,16 +1,52 @@
-<div >
-    <table class="table table-striped">
-        <tbody>
-            <tr *ngFor="let evento of tourEventos">
-                <td>
-                    <dl>
-                        <dt>Nombre del Evento:</dt><dd>{{evento.nombre}}</dd>
-                        <dt>Fecha de inicio:</dt><dd>{{getFecha(evento.fechaInicio)}}</dd>
-                        <dt>Fecha de terminacion:</dt><dd>{{getFecha(evento.fechaFin)}}</dd>
-                        <dt>Descripcion:</dt><dd>{{evento.descripcion}}</dd>
-                    </dl>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container p">
+
+    <div class="row" id ="row-cards">
+        <div class="col-10 offset-1 card p-2 main-card">
+            <div class="card-body text-center">
+                <p>
+                    <button class="btn btn-dark" type="button" data-toggle="modal" [attr.data-target]="'#prueba'+i"
+                    aria-expanded="true" aria-controls="prueba">Ver itinerario</button>
+                </p>
+
+                     <!--Modal-->
+                    <div  *ngFor="let e of tourEventos;index as i">
+                        <div class="modal fade" [attr.id]="'prueba'+i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Itinerario:</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card card-body card-modal">
+                                        <h5>Nombre del Evento:</h5>
+                                        {{e.nombre}}
+                                        </div>
+                                        <div class="card card-body card-modal">
+                                        <h5>Fecha de inicio:</h5>
+                                        {{e.fechaInicio,}}
+                                        </div>
+                                        <div class="card card-body card-modal">
+                                        <h5>Fecha de terminacion:</h5>
+                                        {{e.fechaFin}}
+                                        </div>
+                                        <div class="card card-body card-modal">
+                                        <h5>Descripcion:</h5>
+                                        {{e.descripcion}}
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Modal -->
+            </div>
+        </div>
+    </div>
 </div>
