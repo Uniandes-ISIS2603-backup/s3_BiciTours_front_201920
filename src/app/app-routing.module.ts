@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 const routes: Routes = [
   {
@@ -45,12 +46,8 @@ const routes: Routes = [
       {
         path: 'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-        /**canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['ADMIN']
-            }
-        }*/
+        canActivate: [NgxPermissionsGuard],
+        data: {permissions: {only: ['ADMIN']}}
       },
       {
         path: '**',

@@ -5,13 +5,14 @@ import { BlogListComponent} from './blog-list/blog-list.component';
 import { BlogDetailComponent} from './blog-detail/blog-detail.component';
 import { BlogUpdateComponent} from './blog-update/blog-update.component';
 import { BlogCreateComponent} from './blog-create/blog-create.component';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 const routes: Routes = [
   {
     path: 'create',
-    component: BlogCreateComponent
-    //canActivate: [NgxPermissionsGuard],
-    //data: {permissions: {only: ['ADMIN','USER']}}
+    component: BlogCreateComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {permissions: {only: ['ADMIN','USER']}}
   },
   {
     path: '',

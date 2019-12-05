@@ -32,21 +32,22 @@ export class UsuarioLoginComponent implements OnInit {
       this.usuario= o;
       console.log(this.usuario)
     });
+    this.login();
   };
 
   /** Logs the user in with the selected role */
   login(): void {
     let role : String ="UNLOGGED"; 
-    /**if(this.usuario.esAdmin)
+    if(this.usuario.esAdmin)
     { role="ADMIN"; }
     else
     { role="USER";  }
-    this.usuarioService.login(role);*/
+    this.usuarioService.login(role);
     this.toastrService.success('Logged in')
   }
   ngOnInit() {
     this.usuario = new UsuarioDetail();
-    this.roles = ['Administrator', 'Client'];
+    this.roles = ['ADMIN', 'USER','UNLOGGED'];
   }
 
 }
