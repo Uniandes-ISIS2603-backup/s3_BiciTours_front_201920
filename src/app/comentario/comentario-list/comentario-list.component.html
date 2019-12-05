@@ -11,6 +11,12 @@
 		<tr>		
 			<th  style="font-size: 20px; text-align: left;">{{c.texto}}</th>
 		</tr>
+		<tr>	
+			<th  style = "font-size : 15 px; cursor: pointer; text-align: left;"><a class="figure-caption" (click)="onSelected(c.id)">Respuestas</a></th>
+		</tr>
+		<tr>
+			<th  style = "font-size : 15 px; cursor: pointer; text-align: left;"><a class="figure-caption" (click)="onSelectedD(c.id)">Eliminar Comentario</a></th>
+		</tr>
 	</table>
 	<br>
 </div>

@@ -40,6 +40,12 @@ export class ComentarioListComponent implements OnInit {
     this.comentarioService.getComentarioDetail(comentario_id).subscribe(o => this.selectedComentario = o);
   }
 
+    onSelectedD(comentario_id: number): void {
+    this.comentario_id = comentario_id;
+    console.log(comentario_id);
+    this.comentarioService.deleteComentario(comentario_id);
+  }
+
 
     /**
      * This will initialize the component by retrieving the list of editorials from the service

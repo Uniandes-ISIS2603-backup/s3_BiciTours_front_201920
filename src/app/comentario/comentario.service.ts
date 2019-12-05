@@ -33,4 +33,9 @@ export class ComentarioService {
         console.log(comentario)
         return this.http.post(API_URL + "/blogs/"+ idBlog +comentarios, comentario);
     }
+
+    deleteComentario(comentarioId)
+    {
+        return this.http.delete(API_URL + comentarios, comentarioId);
+    }
 }
