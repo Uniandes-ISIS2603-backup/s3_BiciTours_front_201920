@@ -14,6 +14,7 @@ import { RecomendacionComponent } from './recomendacion/recomendacion.component'
 import { TourEventoComponent } from './tour-evento/tour-evento.component';
 import { TourAddEventoComponent } from './tour-add-evento/tour-add-evento.component';
 import {TourEliminateComponent} from '../tour-eliminate/tour-eliminate.component';
+import { TourDeleteEventoComponent } from './tour-delete-evento/tour-delete-evento.component';
 
 
 
@@ -34,7 +35,7 @@ import {TourEliminateComponent} from '../tour-eliminate/tour-eliminate.component
         TourEliminateComponent,
         RecomendacionComponent, 
         TourEventoComponent, 
-        TourAddEventoComponent],
+        TourAddEventoComponent, TourDeleteEventoComponent],
     providers: [TourService],
     exports:[TourListComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent]
 })
