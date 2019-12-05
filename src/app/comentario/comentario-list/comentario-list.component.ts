@@ -42,6 +42,7 @@ export class ComentarioListComponent implements OnInit {
 
     onSelectedD(comentario_id: number): void {
     this.comentario_id = comentario_id;
+    console.log(comentario_id);
     this.comentarioService.deleteComentario(comentario_id);
   }
 
