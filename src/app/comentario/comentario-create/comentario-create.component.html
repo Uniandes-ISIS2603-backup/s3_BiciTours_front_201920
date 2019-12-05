@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div class="container-fluid" style="width: 100%;">
     <br>
-    <p style="font-size: 25px; width: 90%;font-weight: bold;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;font-size: 30px; text-align: center;">Añade un comentario</p>
-    <form [formGroup]="formC" (ngSubmit)="onSubmit()">
+    <p style="font-size: 25px; width: 100%;font-weight: bold;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;font-size: 30px; text-align: center;">Añade un comentario</p>
+    <form [formGroup]="formC" (ngSubmit)="onSubmit()"style="width:100%;">
         
         <a style = "font-size: 20px; width: 90%; text-align: center;">Elige una calificación (0-5):    </a>
         <input  type="number" min="0" max="5" step="1" value="0" formControlName="calificacion">
@@ -10,10 +10,10 @@
         <a style = "font-size: 20px; width: 90%; text-align: center;">Incluye un comentario (Máximo 250 caracteres):</a>
         <br>
         <br>
-        <textarea style="resize:none" rows="5" cols="49" formControlName ="Comparte por qué escogiste esta calificación." placeholder="Comparte por qué escogiste esta calificación."></textarea>
+        <textarea style="resize:none" rows="5" cols="50" formControlName ="Comparte por qué escogiste esta calificación." placeholder="Comparte por qué escogiste esta calificación."></textarea>
         <br>
         <br>
-        <button type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Crear comentario</button>
      </form>
 </div>
 <br>
