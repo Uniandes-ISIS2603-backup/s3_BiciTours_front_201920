@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
-import { Usuario } from '../usuario';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioDetail } from '../usuario-detail';
 
@@ -30,9 +29,9 @@ export class UsuarioLoginComponent implements OnInit {
     console.log(usuario.password)
     this.usuarioService.createUsuario(usuario).subscribe(o =>{
       this.usuario= o;
-      console.log(this.usuario)
+      this.login();
     });
-    this.login();
+    
   };
 
   /** Logs the user in with the selected role */

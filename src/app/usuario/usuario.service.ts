@@ -12,13 +12,18 @@ const usuarios = "/usuario";
 
 @Injectable()
 export class UsuarioService {
+
+
+
+
+
   /** Constructor del servicio Usuario
      * @param router Router de angular para redireccionar al usuario en login o logout
      * @param roleService NgxRolesService para manejar autenticaciones de rol (según ejemplo de front-pregrado201920)
      * @param permissionsService NgxPermissionsService para manejar autenticaciones de rol
      */
   constructor(private router: Router,private http: HttpClient, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
-  
+
      //Funciones para creación y cambio de autenticación (según front-pregrado201920)
   /** Start: reinicia los estados de autenticación*/
   start (): void {
@@ -34,8 +39,9 @@ export class UsuarioService {
         this.setUserRole();
     }
 }
+
 /** No registrado: actualiza el usuario a UNLOGGED */
-setUnloggedRole (): void {
+setUnloggedRole (): void { 
     this.roleService.flushRoles();
     this.roleService.addRole('UNLOGGED', ['']);
 }
@@ -54,18 +60,21 @@ setAdministratorRole (): void {
 /** Imprimir rol: imprime en consola el rol del usuario actual */
 printRole (): void {
     console.log(this.roleService.getRoles());
+
 }
 
 /** Loggea el usuario en el rol deseado
  * @param role El rol deseado a registrar */
 login (role): void {
+   this.permissionsService.flushPermissions();
     if (role === 'ADMIN') {
         this.setAdministratorRole();
     } else {
         this.setUserRole()
     }
-    console.log(this.printRole());
+    this.printRole();
     this.router.navigateByUrl('/home');
+    this.permissionsService.addPermission(role)
 }
 
 /** Desconectar: desconecta al usuario cambiando su rol a UNLOGGED */
@@ -74,6 +83,7 @@ logout (): void {
     this.setUnloggedRole();
     localStorage.removeItem('role');
     this.router.navigateByUrl('/');
+    this.permissionsService.flushPermissions();
 }
 
   // Funciones para comunicación con Back mediante Html
