@@ -44,4 +44,8 @@ export class TourService {
     createEvento(tourId, evento): Observable<Evento> { 
         return this.http.post<Evento>(API_URL+tours+'/'+tourId+eventos, evento)
     }
+
+    deleteEvento(tourId, evento) { 
+        return this.http.delete<Evento>(API_URL+tours+'/'+tourId+eventos, evento)
+    }
 }
