@@ -70,13 +70,14 @@
 		<div class="col-md-5">
 				<div class="n" style="width:90%">
 					<h3>Itinerario</h3>
-					<div ><!-- Recorre todos los eventos -->
+					<div *ngFor="let e of eventos"><!-- Recorre todos los eventos -->
 						<div class="row division">
 							<div class="col-md-4"><!-- Aquí va las horas donde ocurren los eventos -->
-								
+								<h5>Fecha de inicio del evento: {{e.fechaInicio}}</h5>
+								<h5>Fecha de terminacion del evento: {{e.fechaFin}}</h5>
 							</div>
 							<div class="col-md-8"><!-- Aquí la descripción -->
-								
+								<h5>Nombre del evento: {{e.descripcion}}</h5>
 							</div>
 						</div>
 					</div>
