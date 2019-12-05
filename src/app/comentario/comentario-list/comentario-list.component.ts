@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { Comentario } from '../comentario';
-import { ComentarioDetailComponent } from '../comentario-detail/comentario-detail.component';
 import { ComentarioDetail } from '../comentario-detail';
 import { ComentarioService } from '../comentario.service';
 import { ActivatedRoute } from '@angular/router';
@@ -30,7 +29,7 @@ export class ComentarioListComponent implements OnInit {
      * Asks the service to update the list of editorials
      */
     getComentarios(): void {
-        this.comentarioService.getComentarios(this.blog_id).subscribe(comentarios => this.comentarios = comentarios);
+        this.comentarioService.getComentarios(this.blog_id).subscribe(comentarios => {this.comentarios = comentarios; });
     }
 
 
@@ -40,19 +39,31 @@ export class ComentarioListComponent implements OnInit {
     this.comentarioService.getComentarioDetail(comentario_id).subscribe(o => this.selectedComentario = o);
   }
 
-    onSelectedD(comentario_id: number): void {
-    this.comentario_id = comentario_id;
-    this.comentarioService.deleteComentario(comentario_id);
-  }
-
 
     /**
      * This will initialize the component by retrieving the list of editorials from the service
      * This method will be called when the component is created
      */
     ngOnInit() {
+    
       this.blog_id=this.route.snapshot.params['id'] 
       this.getComentarios();
+      
     }
   
-}
+    
+    load(i:number, comentario:ComentarioDetail): boolean {
+        var objeto=document.getElementsByTagName("list-comentario")[0].getElementsByClassName("hide")[i];
+        if(localStorage.getItem('id')!=comentario.usuario.id+""){
+          return false;
+        }
+        else{
+          return true;
+        }
+    }
+    click(id:number, idB){
+
+      this.comentarioService.deleteComentario(id, idB);
+
+    }
+  }

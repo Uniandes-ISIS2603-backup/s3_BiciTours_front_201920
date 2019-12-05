@@ -1,22 +1,19 @@
-<div class="container-fluid" *ngFor="let c of comentarios" style="size: 100%; border: 2px solid white; background-color: #01203a; color: white;">
-		<br>
-	<table class="container-fluid" >
-		<tr style="font-size: 25px; width: 90%;">
-			<th routerLink="/usuarios/{{c.usuario.id}}/perfil" style=" text-align: left; cursor: pointer; width: 50%; right: 50%; color: #A6C8D9;" >{{c.usuario.nombre}}:</th>
-			<th style="text-align: right; width: 50%;">Calificación:  <img src="../../../assets/star.png" style="  margin-left: auto;margin-right: auto;width:20px;height:20px; vertical-align: middle; top: 0%;">{{c.calificacion}}</th>
-		</tr>	
-	</table>
+<div class="container-fluid" *ngFor="let c of comentarios; index as i" style="size: 100%; border: 2px solid white; background-color: #01203a; color: white;" >
 	<br>
-	<table class="container-fluid">
-		<tr>		
-			<th  style="font-size: 20px; text-align: left;">{{c.texto}}</th>
-		</tr>
-		<tr>	
-			<th  style = "font-size : 15 px; text-align: left;"><a class="figure-caption" (click)="onSelected(c.id)">Respuestas</a></th>
-		</tr>
-		<tr>
-			<th  style = "font-size : 15 px; text-align: left;"><a class="figure-caption" (click)="onSelectedD(c.id)">Eliminar Comentario</a></th>
-		</tr>
-	</table>
-	<br>
+<table class="container-fluid" >
+	<tr style="font-size: 25px; width: 90%;">
+		<th routerLink="/usuarios/{{c.usuario.id}}/perfil" style=" text-align: left; cursor: pointer; width: 50%; right: 50%; color: #A6C8D9;" >{{c.usuario.nombre}}:</th>
+		<th style="text-align: right; width: 50%;">Calificación:  <img src="../../../assets/star.png" style="  margin-left: auto;margin-right: auto;width:20px;height:20px; vertical-align: middle; top: 0%;">{{c.calificacion}}</th>
+	</tr>	
+</table>
+<br>
+<table class="container-fluid" >
+	<tr>		
+		<th  style="font-size: 20px; text-align: left;">{{c.texto}}</th>
+		<th  style="vertical-align: middle; "  *ngIf="load(i,c)"><button type="button" class="close" aria-label="Close" style=" color: white;  " id="usuario"(click)="click(c.id, c.blog.id)">
+			<p class="hide" >&#10006;</p>
+		  </button></th>
+	</tr>
+</table>
+<br>
 </div>

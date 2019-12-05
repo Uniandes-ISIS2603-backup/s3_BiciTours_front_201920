@@ -13,7 +13,7 @@ import { UsuarioService } from 'src/app/usuario/usuario.service';
   styleUrls: ['./comentario-create.component.css']
 })
 export class ComentarioCreateComponent implements OnInit {
-
+ 
   blog_id:number;
   
   constructor(
