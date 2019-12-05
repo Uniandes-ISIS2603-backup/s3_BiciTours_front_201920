@@ -58,6 +58,12 @@ export class UsuarioDetailComponent implements OnInit {
   }
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    if(localStorage.getItem('id')!=window.location.pathname.split('/')[2]){
+      document.getElementById("InformacionPrivada").style.display="none";
+    }
+    else{
+      document.getElementById("InformacionPrivada").style.display="";
+    }
   }
 
   ngOnDestroy() {

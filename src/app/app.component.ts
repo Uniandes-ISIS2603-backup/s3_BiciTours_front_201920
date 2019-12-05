@@ -9,7 +9,6 @@ import { UsuarioService } from './usuario/usuario.service';
 export class AppComponent {
   title = 'bicitours-front';
   constructor(usuario: UsuarioService){
-    localStorage.clear();
     usuario.start();
   }
 }

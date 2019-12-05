@@ -3,11 +3,14 @@
   <li class="nav-item" *ngxPermissionsOnly="['UNLOGGED']">
     <a class="nav-link text-color" routerLink="/usuarios/login" routerLinkActive=active>Login</a>
   </li>
+  <li class="nav-item" *ngxPermissionsOnly="['USER','ADMIN']">
+      <a class="nav-link text-color" (click)="logout()" routerLinkActive=active style="cursor: pointer;">Log out</a>
+    </li>
   <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
       <a class="nav-link text-color" routerLink="/admin" routerLinkActive=active>Admin</a>
   </li>
   <li class="nav-item" *ngxPermissionsOnly="['USER','ADMIN']">
-      <a class="nav-link text-color" routerLink="/ " routerLinkActive=active>Perfil</a>
+      <a class="nav-link text-color" (click)="click()" routerLinkActive=active style="cursor: pointer;">Perfil</a>
   </li>
 </ul>
 

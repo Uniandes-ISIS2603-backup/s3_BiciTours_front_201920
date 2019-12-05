@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { BlogService } from '../blog.service';
 import { Blog } from '../blog';
+import { UsuarioService } from 'src/app/usuario/usuario.service';
 
 @Component({
   selector: 'app-blog-create',
@@ -14,7 +15,7 @@ export class BlogCreateComponent{
     blogService: BlogService;
     blogs: Blog[];
     
-    constructor(private formBuilder: FormBuilder, blogService: BlogService, private toastr: ToastrService) {   
+    constructor(private formBuilder: FormBuilder, blogService: BlogService, private toastr: ToastrService, private usuarioService: UsuarioService) {   
         this.blogs=[];
         this.blogService = blogService; 
         this.blogForm = this.formBuilder.group({
@@ -25,9 +26,10 @@ export class BlogCreateComponent{
     });
     }
     createBlog(nuevoBlog: Blog){
-        nuevoBlog.calificacionPromedio=10.0;
+        nuevoBlog.calificacionPromedio=0.0;
         nuevoBlog.id=null;
-        if(!this.matchYoutubeUrl(nuevoBlog.rutaVideo))
+        this.usuarioService.getUsuario(parseInt(localStorage.getItem("id"))).subscribe(usuario => {nuevoBlog.creador=usuario
+                if(!this.matchYoutubeUrl(nuevoBlog.rutaVideo))
         {
             nuevoBlog.rutaVideo="";
         }
@@ -35,7 +37,8 @@ export class BlogCreateComponent{
             this.blogs.push(blog);
             this.showSuccess();
             window.history.back();
-        });
+        });});
+
 
         this.blogForm.reset();
         

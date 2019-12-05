@@ -26,7 +26,15 @@ export class UsuarioService {
     this.permissionsService.flushPermissions();
     this.roleService.flushRoles();
     this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
-    this.setUnloggedRole();
+    const role = localStorage.getItem('role');
+    if (!role) {
+        this.setUnloggedRole();
+    } else if (role === 'ADMIN') {
+        this.setAdministratorRole();
+    } else {
+        this.setUserRole();
+    }
+
 }
 
 /** No registrado: actualiza el usuario a UNLOGGED */
@@ -74,7 +82,7 @@ login (role): void {
 logout (): void {
     this.roleService.flushRoles();
     this.setUnloggedRole();
-    localStorage.removeItem('role');
+    localStorage.clear();
     this.router.navigateByUrl('/');
     this.permissionsService.flushPermissions();
 }

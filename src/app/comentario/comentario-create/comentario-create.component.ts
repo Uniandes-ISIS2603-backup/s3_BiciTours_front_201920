@@ -5,6 +5,7 @@ import {ComentarioService} from '../comentario.service';
 import {Comentario} from '../comentario';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { UsuarioService } from 'src/app/usuario/usuario.service';
 
 @Component({
   selector: 'comentario-create',
@@ -18,7 +19,8 @@ export class ComentarioCreateComponent implements OnInit {
   constructor(
     private comentarioService: ComentarioService,
     private toastrService: ToastrService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private usuarioService: UsuarioService
   ) { }
     
     formC = new FormGroup({
@@ -54,12 +56,15 @@ export class ComentarioCreateComponent implements OnInit {
     * Creates a comentario
     */
     createComentario(): Comentario { 
+      
+      this.usuarioService.getUsuario(parseInt(localStorage.getItem("id"))).subscribe(usuario => {
+        this.comentario.usuario=usuario;
         this.comentarioService.createComentario(this.blog_id,this.comentario)
             .subscribe((c : Comentario) => {
-                this.comentario = c;
                 this.create.emit();
                 this.toastrService.success("The comentario was created", "comentario creation");
-            });
+                location.reload();
+            });});
             
         return this.comentario;
     }
