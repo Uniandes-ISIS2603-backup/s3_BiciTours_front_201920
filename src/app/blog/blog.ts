@@ -1,3 +1,5 @@
+import { Usuario } from '../usuario/usuario';
+
 export class Blog {
   id:number;
 
@@ -10,5 +12,7 @@ export class Blog {
   rutaImagen:string;
 
   rutaVideo:string;
+
+  creador:Usuario;
   
 }

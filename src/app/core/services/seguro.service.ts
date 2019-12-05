@@ -14,10 +14,18 @@ export class SeguroService {
     return this.http.get<Seguro[]>(API_URL + seguros);
   }
 
+  getSeguro(id: number) {
+    return this.http.get<Seguro[]>(API_URL + seguros + '/' + id);
+  }
 
-  
   postSeguro(seguro: Seguro) {
     return  this.http.post(API_URL + seguros, seguro);
   }
+  updateSeguro(seguro: Seguro) {
+    return  this.http.put(API_URL + seguros + '/' + seguro.id, seguro);
+  }
 
+  deleteSeguro(id: number){
+    return this.http.delete(API_URL + seguros + '/' + id);
+  }
 }

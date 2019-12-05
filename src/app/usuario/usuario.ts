@@ -1,9 +1,15 @@
 export class Usuario {
   id:number;
 
-  nombre: string;
+  nombre: String;
 
-  correo: string;
+  correo: String;
 
-  password: string;
+  password: String;
+
+  deuda: number;
+
+  esAdmin: boolean;
+
+  pago: boolean;
 }

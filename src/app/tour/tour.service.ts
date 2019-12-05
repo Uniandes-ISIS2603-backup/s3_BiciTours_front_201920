@@ -50,4 +50,8 @@ export class TourService {
         console.log(API_URL +tours+"/"+tourId);
         return this.http.delete(API_URL +tours+"/"+tourId);
     }
+
+    deleteEvento(tourId, evento) { 
+        return this.http.delete<Evento>(API_URL+tours+'/'+tourId+eventos, evento)
+    }
 }

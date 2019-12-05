@@ -6,7 +6,8 @@ import { TourDetailComponent} from './tour-detail/tour-detail.component';
 import { TourCreateComponent} from './tour-create/tour-create.component';
 import { FotoCreateComponent} from '../foto/foto-create/foto-create.component';
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
-
+import {NgxPermissionsGuard} from 'ngx-permissions';
+import { TourEventoComponent } from './tour-evento/tour-evento.component';
 
 
 const routes: Routes = [
@@ -16,11 +17,15 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component:TourCreateComponent
+    component:TourCreateComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {permissions: {only: ['ADMIN','USER']}}
   },
   {
     path: 'create/fotos',
-    component:FotoCreateComponent
+    component:FotoCreateComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {permissions: {only: ['ADMIN','USER']}}
   },
   {
     path: 'recomendacion',
@@ -30,6 +35,10 @@ const routes: Routes = [
     path: ':id',
     component: TourDetailComponent
   },
+  {
+    path:'evento',
+    component: TourEventoComponent
+  }
   
 ];
 

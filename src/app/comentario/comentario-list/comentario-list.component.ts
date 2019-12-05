@@ -5,6 +5,7 @@ import { Comentario } from '../comentario';
 import { ComentarioDetailComponent } from '../comentario-detail/comentario-detail.component';
 import { ComentarioDetail } from '../comentario-detail';
 import { ComentarioService } from '../comentario.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'list-comentario',
@@ -14,8 +15,8 @@ import { ComentarioService } from '../comentario.service';
 export class ComentarioListComponent implements OnInit {
 
 
-  constructor(private comentarioService: ComentarioService, private router: Router) { }
-
+  constructor(private comentarioService: ComentarioService, private router: Router, private route: ActivatedRoute) { }
+  blog_id: number;
   comentario_id: number;
   selectedComentario: ComentarioDetail;
 
@@ -29,7 +30,7 @@ export class ComentarioListComponent implements OnInit {
      * Asks the service to update the list of editorials
      */
     getComentarios(): void {
-        this.comentarioService.getComentarios().subscribe(comentarios => this.comentarios = comentarios);
+        this.comentarioService.getComentarios(this.blog_id).subscribe(comentarios => this.comentarios = comentarios);
     }
 
 
@@ -45,7 +46,8 @@ export class ComentarioListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.getComentarios();
+      this.blog_id=this.route.snapshot.params['id'] 
+      this.getComentarios();
     }
   
 }

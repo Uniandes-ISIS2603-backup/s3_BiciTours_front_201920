@@ -4,6 +4,8 @@ import {Blog} from '../blog/blog';
 import {Tour} from '../tour/tour';
  */
 import {Blog} from '../blog/blog';
+import { Usuario } from '../usuario/usuario';
+import { Tour } from '../tour/tour';
 
 export class Comentario {
 
@@ -30,7 +32,7 @@ export class Comentario {
   * The comentario's usuario
   */
 
-  usuario: string; 
+  usuario: Usuario; 
 
   //usuario: Usuario; 
 
@@ -39,14 +41,14 @@ export class Comentario {
   * The comentario's blog
   */
 
-  blog: string; 
+  blog: Blog;
 
 
   /**
   * The comentario's tour
   */
 
-  tour: string; 
+  tour: Tour; 
   //tour: Tour; 
 
 

@@ -1,7 +1,16 @@
 <ul class="nav justify-content-end">
 
-  <li class="nav-item">
-    <a class="nav-link text-color" routerLink="/usuario-login" routerLinkActive=active>Cuenta</a>
+  <li class="nav-item" *ngxPermissionsOnly="['UNLOGGED']">
+    <a class="nav-link text-color" routerLink="/usuarios/login" routerLinkActive=active>Login</a>
+  </li>
+  <li class="nav-item" *ngxPermissionsOnly="['USER','ADMIN']">
+      <a class="nav-link text-color" (click)="logout()" routerLinkActive=active style="cursor: pointer;">Log out</a>
+    </li>
+  <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
+      <a class="nav-link text-color" routerLink="/admin" routerLinkActive=active>Admin</a>
+  </li>
+  <li class="nav-item" *ngxPermissionsOnly="['USER','ADMIN']">
+      <a class="nav-link text-color" (click)="click()" routerLinkActive=active style="cursor: pointer;">Perfil</a>
   </li>
 </ul>
 
@@ -9,21 +18,17 @@
   <li class="nav-item">
     <a class="nav-link text-color" routerLink="/seguros" routerLinkActive=active>Seguros</a>
   </li>
- 
   <li class="nav-item">
-    <a class="nav-link  text-color" routerLink="/contacto" routerLinkActive=active>Contacto</a>
-  </li>
+      <a class="nav-link  text-color" routerLink="/tours" routerLinkActive=active>Tours</a>
+    </li>
   <li class="nav-item">
       <a class="nav-link  text-color" routerLink="/home" routerLinkActive=active>Bicitours</a>
     </li>
   <li class="nav-item">
-    <a class="nav-link  text-color" routerLink="/tours" routerLinkActive=active>Tours</a>
-  </li>
-  <li class="nav-item">
     <a class="nav-link  text-color" routerLink="/blogs" routerLinkActive=active>Blogs</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link  text-color" routerLink="/comentarios" routerLinkActive=active>Comentarios</a>
+    <a class="nav-link  text-color" routerLink="/usuarios" routerLinkActive=active>Usuarios</a>
   </li>
 </ul>
 

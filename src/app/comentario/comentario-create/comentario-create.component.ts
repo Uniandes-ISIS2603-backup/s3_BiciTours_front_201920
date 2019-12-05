@@ -4,6 +4,8 @@ import {ToastrService} from 'ngx-toastr';
 import {ComentarioService} from '../comentario.service';
 import {Comentario} from '../comentario';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { UsuarioService } from 'src/app/usuario/usuario.service';
 
 @Component({
   selector: 'comentario-create',
@@ -12,14 +14,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ComentarioCreateComponent implements OnInit {
 
+  blog_id:number;
+  
   constructor(
     private comentarioService: ComentarioService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private route: ActivatedRoute,
+    private usuarioService: UsuarioService
   ) { }
     
     formC = new FormGroup({
-      calificacion: new FormControl(1),
-      texto: new FormControl('texto'),
+      calificacion: new FormControl(0),
+      texto: new FormControl('Comparte por qué escogiste esta calificación.'),
     });
 
     /**
@@ -31,10 +37,6 @@ export class ComentarioCreateComponent implements OnInit {
       this.comentario = new Comentario;
       this.comentario.calificacion = this.formC.get('calificacion').value;  
       this.comentario.texto = this.formC.get('texto').value;
-      console.log("comentario submit:" + this.comentario);
-      console.log("comentario submit calif:" + this.comentario.calificacion);
-      console.log("comentario submit text:" + this.comentario.texto);
-
       this.createComentario();
     }
 
@@ -54,15 +56,16 @@ export class ComentarioCreateComponent implements OnInit {
     * Creates a comentario
     */
     createComentario(): Comentario { 
-        this.comentarioService.createComentario(this.comentario)
+      
+      this.usuarioService.getUsuario(parseInt(localStorage.getItem("id"))).subscribe(usuario => {
+        this.comentario.usuario=usuario;
+        this.comentarioService.createComentario(this.blog_id,this.comentario)
             .subscribe((c : Comentario) => {
-                
-                this.comentario = c;
-                console.log("comentario servicio:" + c);
                 this.create.emit();
                 this.toastrService.success("The comentario was created", "comentario creation");
-
-            });
+                location.reload();
+            });});
+            
         return this.comentario;
     }
     
@@ -78,7 +81,7 @@ export class ComentarioCreateComponent implements OnInit {
     * This function will initialize the component
     */
     ngOnInit() {
-        
+      this.blog_id=this.route.snapshot.params['id'] 
     }
 
 }

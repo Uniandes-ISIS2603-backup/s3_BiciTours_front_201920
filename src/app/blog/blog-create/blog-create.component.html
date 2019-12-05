@@ -1,31 +1,43 @@
 <br>
-<div class="container-fluid" style="width: 70%; text-align: center; outline: solid black  2px; background-color: #C72C41; color: white; font-weight: bold; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" >
+<div class="container-fluid" style="width: 70%; text-align: center; outline: solid black  2px; background-color: #C72C41; " >
         <br>
-        <a style="font-size: 35px;">Crear un blog</a>
+        <a style="font-size: 35px; font-weight: bold; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; color: white;">Crear un blog</a>
         <br>
         <br>
     <form [formGroup]="blogForm" (ngSubmit)="createBlog(blogForm.value)">
         <div>
-            <label for="titulo"style="font-size: 25px;" >Titulo</label>
+            <label for="titulo"style="font-size: 30px;" >Título</label>
             <input novalidate id="titulo" class="form-control" formControlName="titulo" placeholder="Escriba el titulo de su blog" style="font-size: 20px;">
             <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('titulo').hasError('required') && blogForm.get('titulo').touched">
-            Titulo requerido
+                Título requerido.
+            </div>
+            <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('titulo').hasError('minlength') && blogForm.get('titulo').touched">
+                El título debe contener por lo menos 5 caracteres.
+            </div>
+            <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('titulo').hasError('maxlength') && blogForm.get('titulo').touched">
+                El título no debe exceder 50 caracteres.
             </div>
         </div>
         <div class="form-group">
-            <label for="texto"style="font-size: 25px;">Texto</label>
+            <label for="texto"style="font-size: 30px;">Texto</label>
             <textarea rows="4" cols="50" name="comment" novalidate id="texto" class="form-control" formControlName="texto" placeholder="Escriba el texto de su blog" style="font-size: 20px;"></textarea>
             <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('texto').hasError('required') && blogForm.get('texto').touched">
-            Texto requerido
+                Texto requerido.
+            </div>
+            <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('texto').hasError('minlength') && blogForm.get('texto').touched">
+                El texto debe contener por lo menos 8 caracteres.
+            </div>
+            <div class="alert alert-danger alert-dismissable fade show" *ngIf="blogForm.get('texto').hasError('maxlength') && blogForm.get('texto').touched">
+                El texto no debe exceder 255 caracteres.
             </div>
         </div>
         <div class="form-group">
-            <label for="rutaImagen"style="font-size: 25px;">Ruta imagen en linea</label>
-            <input novalidate id="rutaImagen" class="form-control" formControlName="rutaImagen" placeholder="Escriba la ruta de la imagen" style="font-size: 20px;">
+            <label for="rutaImagen"style="font-size: 30px;">Ruta imagen en linea</label>
+            <input novalidate id="rutaImagen" class="form-control" formControlName="rutaImagen" placeholder="Escriba el link de la imagen" style="font-size: 20px;">
         </div>
         <div class="form-group">
-            <label for="rutaVideo"style="font-size: 25px;">Ruta video en linea</label>
-            <input novalidate id="rutaVideo" class="form-control" formControlName="rutaVideo" placeholder="Escriba el titulo de su blog" style="font-size: 20px;">
+            <label for="rutaVideo"style="font-size: 30px;">Ruta video de Youtube</label>
+            <input novalidate id="rutaVideo" class="form-control" formControlName="rutaVideo" placeholder="Escriba el link de su video de Youtube" style="font-size: 20px;">
         </div>
         <button class="btn btn-primary" type="submit" style="font-size: 25px; width: 40%;" [disabled]="blogForm.invalid">Crear blog</button>
         <br>
