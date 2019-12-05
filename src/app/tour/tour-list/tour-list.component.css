@@ -46,3 +46,109 @@ p{
   h3{
     font-family: 'Courier New', Courier, monospace;
   }
+
+  .dropbtn {
+    background-color: transparent;
+    background-image: url('https://i.imgur.com/oAa2JjX.png');
+    padding: 16px;
+    background-size: 100%;
+    border: none;
+    border-radius: 0 20px 0 0;
+  }
+
+  .dddd2
+  {
+    position: relative;
+  }
+
+  .ddd{
+    position: relative;
+    margin-top: -22px;
+    margin-left: 192px;
+  }
+  
+  .dd {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn:hover{
+    background-color: #f1f1f1;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+
+  .dropdown-content:hover{
+    display:block
+  }
+  
+  .dropdown-content .botoncito {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    background: none;
+    border:none;
+    display: block;
+    width:100%;
+    text-align: left;
+  }
+
+  button:focus{
+    outline:0;
+  }
+
+  .dropdown-content .botoncito:hover{
+    background-color:gray;
+  }
+  
+ 
+    .arrow-button {
+      -webkit-tap-highlight-color: transparent;
+      background: transparent;
+      border: 0;
+      color: black;
+      font-family: 'Roboto Mono', monospace;
+    }
+    .box2 {
+      border-radius: 20px;
+      text-align: center;
+      background-color:white;
+      border: 1px solid lightgray;
+      padding: 3ch;
+      position: relative;
+      min-width: 30ch;
+      color:black
+    }
+    header {
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      right: 0;
+      top: -.65em;
+    }
+    .title {
+      background:white;
+      padding: 0 1ch;
+      color: black;
+    }
+    footer {
+      padding-top: 2ch;
+    }
+    .b{
+      -webkit-tap-highlight-color: transparent;
+      background: transparent;
+      border: 0;
+      color: black;
+      font-family: 'Roboto Mono', monospace;
+      margin: 1ch;
+    }
+
+    
+  

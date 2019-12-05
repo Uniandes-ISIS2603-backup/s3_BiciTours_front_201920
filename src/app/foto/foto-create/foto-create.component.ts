@@ -95,10 +95,10 @@ export class FotoCreateComponent{
     onSubmit()
     {
       this.fotos.push(this.fotosForm.value);
-      if(this.fotos.length >= 2){
+      /**if(this.fotos.length >= 2){
       document.getElementById("siguiente").style.pointerEvents = "auto";
       document.getElementById("anterior").style.pointerEvents = "auto";
-      }
+      }*/
           
     }
 }

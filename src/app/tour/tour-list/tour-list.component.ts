@@ -43,4 +43,35 @@ export class TourListComponent implements OnInit {
     this.getTours();
     this.getRecomendaciones();
   }
+
+  mostrarOpciones( j )
+  {
+    console.log(document.getElementById(j).style.getPropertyValue('display'));
+    if( document.getElementById(j).style.display == "block")
+    {
+      document.getElementById(j).style.display = "inliine-block";
+    }
+    else{
+    document.getElementById(j).style.display = "block";
+    }
+  }
+
+  popUpOpen = false;
+  idd = 0;
+
+  openPopUp(j) {
+    this.popUpOpen = true;
+    this.idd=j;
+  }
+
+  deleteOption() {
+    this.popUpOpen = false;
+    console.log(this.idd);
+    this.tourService.deleteTour(this.idd).subscribe();
+
+  }
+
+  cancelOption() {
+    this.popUpOpen = false;
+  }
 }

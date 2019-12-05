@@ -11,22 +11,30 @@ import { TourDetailComponent } from './tour-detail/tour-detail.component';
 import {FotoCreateComponent} from '../foto/foto-create/foto-create.component';
 
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
-
 import { TourEventoComponent } from './tour-evento/tour-evento.component';
 import { TourAddEventoComponent } from './tour-add-evento/tour-add-evento.component';
+import {TourEliminateComponent} from '../tour-eliminate/tour-eliminate.component';
 
 
 
-
+ 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         TourRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
 
-    declarations: [TourListComponent, TourDetailComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent, TourEventoComponent, TourAddEventoComponent],
+    declarations: [
+        TourListComponent, 
+        TourDetailComponent,
+        TourCreateComponent,
+        FotoCreateComponent, 
+        TourEliminateComponent,
+        RecomendacionComponent, 
+        TourEventoComponent, 
+        TourAddEventoComponent],
     providers: [TourService],
     exports:[TourListComponent,TourCreateComponent,FotoCreateComponent, RecomendacionComponent]
 })
