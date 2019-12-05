@@ -1,4 +1,19 @@
 <div class="container-fluid">
+    <app-tour-eliminate class="my-prompt" [isOpen]="popUpOpen">
+      <div class="box2">
+        <header>
+          <span class="title">Eliminar tour</span>
+        </header>
+        <main>
+         ¿Está seguro que desea eliminar este tour y todas sus dependencias?
+        </main>
+        <footer>
+          <button type="button" (click)="deleteOption()" class="btn btn-outline-danger">Eliminar</button>
+          <button type="button" (click)="cancelOption()" class="btn btn-outline-secondary">Cancelar</button>
+        </footer>
+      </div>
+    </app-tour-eliminate>
+
   <div class="row">
     <div class="col-md-3" style="margin-top:170px">
       <!--     <h6>Filtrar por dificultad:</h6>
@@ -43,18 +58,29 @@
       <div class="row">
         <div class="box">
           <div *ngFor="let i of tours; index as j">
-            <div class="n" [routerLink]="[tours[j].id]">
-             <img src={{tours[j].fotos[0].ruta}} width="100%" height="150px" style="border-radius:18px"><br><br>
-             <h5>{{tours[j].nombre}}</h5>
-
+            <div class="n" >
+                <div class="ddd">
+                    <div class="dd">
+                        <button class="dropbtn" (click)="mostrarOpciones(j)"></button>
+                        <div class="dropdown-content" id={{j}}>
+                          <button class="botoncito">Editar</button>
+                          <button class="botoncito" [disabled]="popUpOpen" (click)="openPopUp(tours[j].id)">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dddd2" [routerLink]="[tours[j].id]">
+                <img *ngIf="tours[j].fotos != null && tours[j].fotos[0] != null " src={{tours[j].fotos[0].ruta}} width="100%" height="150px" style="border-radius:18px"><br><br>
+                <img *ngIf="tours[j].fotos == null || tours[j].fotos[0] == null" src='data:image/png;base64,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' width="100%" height="100px" style="border-radius:18px; margin-top:-40px"><br><br>
+              <h5>{{tours[j].nombre}}</h5>
               <strong>Lugar:</strong> {{tours[j].lugar}} <br>
               <strong>Duración:</strong> {{tours[j].duracion}}<br>
+              <strong>Fecha:</strong> {{tours[j].fecha.substring(0, 10)}} <br>
               <strong>Fecha:</strong> {{tours[j].fecha}}
               <h4>Recomendacion:</h4>
               <strong>Tipo Bicicelta:{{recomendaciones[j].tipoBici}}</strong>
               <strong>Indumentaria:{{recomendaciones[j].indumentaria}}</strong>
-
               <h4 id="derecha">${{tours[j].costo}}</h4>
+              </div>
             </div>
           </div>
         </div>

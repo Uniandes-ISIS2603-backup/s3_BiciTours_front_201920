@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Evento } from '../evento'
+import { TourService } from '../tour.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,9 +12,11 @@ import { Evento } from '../evento'
 export class TourEventoComponent implements OnInit {
   @Input() tourEventos: Evento[];
 
+  evento: Evento;
   public isCollapsed = false;
 
-  constructor() { }
+  constructor(private tourService: TourService,
+              private toastrService: ToastrService) { }
 
   updateEventos(eventos:Evento[]): void {
     this.tourEventos= eventos;
@@ -22,6 +26,7 @@ export class TourEventoComponent implements OnInit {
     let fecha: Date = new Date(p);
     return fecha;
   }
+
 
 
   ngOnInit() {

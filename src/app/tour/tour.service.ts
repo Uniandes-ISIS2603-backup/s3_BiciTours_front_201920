@@ -34,15 +34,21 @@ export class TourService {
     * @returns el tour
     */
     getTourDetail(tourId:number): Observable<TourDetail> {
-        return this.http.get<TourDetail>(API_URL +tours + "/"+tourId);
+        return this.http.get<TourDetail>(API_URL +tours+"/"+tourId);
     }
     
     createTour(tour: Tour) {
-        return  this.http.post(API_URL+tours, tour);
-      }
+        return this.http.post(API_URL+tours, tour);
+    }
 
     createEvento(tourId, evento): Observable<Evento> { 
         return this.http.post<Evento>(API_URL+tours+'/'+tourId+eventos, evento)
+    }
+
+    deleteTour(tourId: number)
+    {
+        console.log(API_URL +tours+"/"+tourId);
+        return this.http.delete(API_URL +tours+"/"+tourId);
     }
 
     deleteEvento(tourId, evento) { 

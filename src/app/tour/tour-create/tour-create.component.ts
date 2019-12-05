@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from "@angular/forms";
-
 import {TourService} from '../tour.service';
 import {Tour} from '../tour';
+import {FotoCreateComponent} from '../../foto/foto-create/foto-create.component';
+import {Foto} from '../../foto/foto';
+import { FotoService } from 'src/app/foto/foto.service';
 
 @Component({
   selector: 'app-tour-create',
@@ -12,9 +14,10 @@ import {Tour} from '../tour';
 export class TourCreateComponent{
   //  tours: Tour;
     tourForm: FormGroup;
+    fotos : Foto[];
     duracionForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private tourService : TourService) { 
+    constructor(private formBuilder: FormBuilder, private tourService : TourService ) { 
         this.tourForm = this.formBuilder.group({
         nombre: ['',[Validators.required, Validators.maxLength(255)]],
         costo: [''],
@@ -35,7 +38,15 @@ export class TourCreateComponent{
     createTour(nuevoTour: Tour){
         nuevoTour.terminado=false;
         nuevoTour.id=7;
-        this.tourService.createTour(nuevoTour).subscribe();
+        var tur = this.tourService.createTour(nuevoTour);
+        console.log("||||||");
+        console.log(tur);
+        tur.subscribe((data) => { 
+            console.log(data);
+         }, (error) => { console.error(error); });
+
+        console.log("||||||");
+
     }
 
     ponerDuracion()
