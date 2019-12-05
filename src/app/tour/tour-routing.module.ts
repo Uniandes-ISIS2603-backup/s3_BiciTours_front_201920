@@ -8,6 +8,7 @@ import { FotoCreateComponent} from '../foto/foto-create/foto-create.component';
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
 import {NgxPermissionsGuard} from 'ngx-permissions';
 import { TourEventoComponent } from './tour-evento/tour-evento.component';
+import { TourAddEventoComponent } from './tour-add-evento/tour-add-evento.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,11 @@ const routes: Routes = [
   },
   {
     path:'evento',
-    component: TourEventoComponent
+    component: TourEventoComponent,
+    children:[{
+                path:'createEvento',
+                component: TourAddEventoComponent
+              }]
   }
   
 ];
