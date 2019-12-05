@@ -9,13 +9,14 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogRoutingModule } from './blog-routing.module';
 import { ComentarioModule } from '../comentario/comentario.module';
 import { BlogUpdateComponent} from './blog-update/blog-update.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
-    CommonModule, BlogRoutingModule, ReactiveFormsModule, ComentarioModule
+    CommonModule, BlogRoutingModule, ReactiveFormsModule, ComentarioModule, NgxPermissionsModule
   ],
   declarations: [BlogListComponent, BlogDetailComponent, BlogCreateComponent, BlogUpdateComponent], 
-  exports: [BlogListComponent, BlogCreateComponent, BlogUpdateComponent],
+  exports: [BlogListComponent, BlogCreateComponent, BlogUpdateComponent, NgxPermissionsModule],
   providers: [BlogService]
 })
 export class BlogModule { }
