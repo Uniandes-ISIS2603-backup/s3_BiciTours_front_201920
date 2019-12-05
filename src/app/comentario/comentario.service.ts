@@ -36,6 +36,6 @@ export class ComentarioService {
 
     deleteComentario(comentarioId)
     {
-        return this.http.delete(API_URL + comentarios, comentarioId);
+        this.http.delete(API_URL + comentarios, comentarioId);
     }
 }
